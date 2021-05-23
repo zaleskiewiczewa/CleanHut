@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +11,7 @@ import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
 import javax.validation.Valid;
-
+@Controller
 public class UserController {
 
     private final UserRepository userRepository;
@@ -25,7 +26,7 @@ public class UserController {
         User user = new User();
         user.setId(1l);
         user.setName("Ewa");
-        user.getEmail("zaleskiewicz.ewa@onet.pl");
+        user.setEmail("zaleskiewicz.ewa@onet.pl");
         user.setPassword("skillet15");
         userRepository.save(user);
         return "user: " + user.getId();

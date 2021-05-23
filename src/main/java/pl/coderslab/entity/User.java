@@ -1,5 +1,4 @@
 package pl.coderslab.entity;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -49,7 +48,7 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail(String s) {
+    public String getEmail() {
         return email;
     }
 

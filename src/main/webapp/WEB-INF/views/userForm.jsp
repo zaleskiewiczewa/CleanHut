@@ -7,18 +7,15 @@
 </style>
 <body>
 
-{
-background-color: black;
-color: white;
-}
+
 Author
-<form:form method="post" modelAttribute="users" action="/user/form">
+<form:form method="post" modelAttribute="user" action="/user/form">
 
     <p hidden><form:input path="id"/></p>
 
-    <label for="login">Login</label>
-    <form:input path="login" id="login"/>
-    <form:errors path="login" cssClass="error"/>
+    <name for="name">Name</name>
+    <form:input path="name" id="name"/>
+    <form:errors path="name" cssClass="error"/>
     <br>
 
     <label for="password">Password</label>
