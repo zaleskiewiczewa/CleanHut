@@ -1,7 +1,9 @@
 package pl.coderslab.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+import lombok.ToString;
 
+@ToString
 @Entity
 @Table(name = "data")
 public class Data {

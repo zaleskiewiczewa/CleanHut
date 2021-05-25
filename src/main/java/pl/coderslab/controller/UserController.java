@@ -1,12 +1,8 @@
 package pl.coderslab.controller;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
@@ -28,8 +24,31 @@ public class UserController {
         user.setName("Ewa");
         user.setEmail("zaleskiewicz.ewa@onet.pl");
         user.setPassword("skillet15");
-        userRepository.save(user);
-        return "user: " + user.getId();
+        userRepository.saveUser(user);
+        return "User: " + user.getId();
+    }
+
+    @RequestMapping (value = "/user/read/{id}")
+    @ResponseBody
+    public String readUser(@PathVariable long id){
+        User user= userRepository.findById(id);
+        return user.toString();
+    }
+
+    @RequestMapping (value = "/user/update/{id}/{name}")
+    @ResponseBody
+    public String updateUser(@PathVariable  long id, @PathVariable String name){
+        User user =userRepository.findById(id);
+        user.setName(name);
+        userRepository.updateUser(user);
+        return user.toString();
+    }
+
+    @RequestMapping (value = "/user/delete/{id}")
+    @ResponseBody
+    public String removeUser(@PathVariable long id){
+        User user = userRepository.findById(id);
+        return "Removed this user";
     }
 
     @RequestMapping(value = "user/form")
@@ -42,7 +61,6 @@ public class UserController {
     @RequestMapping(value = "/user/form", method = RequestMethod.POST)
     public String postuser(@ModelAttribute @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-
         }
         return "userForm";
     }

@@ -7,7 +7,6 @@
 </style>
 <body>
 
-
 Space
 <form:form method="post" modelAttribute="space" action="/space/form">
 

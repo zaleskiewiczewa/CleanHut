@@ -1,7 +1,9 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
+import lombok.ToString;
 import javax.validation.constraints.NotBlank;
 
+@ToString
 @Entity
 @Table(name = "space")
 public class Space {
@@ -11,7 +13,7 @@ public class Space {
     private Long id;
 
     @NotBlank
-    private String space;
+    private String rooms;
 
     public Long getId() {
         return id;
@@ -21,11 +23,11 @@ public class Space {
         this.id = id;
     }
 
-    public String getSpace() {
-        return space;
+    public String getRooms() {
+        return rooms;
     }
 
-    public void setSpace(String space) {
-        space = space;
+    public void setRooms(String room) {
+        this.rooms = rooms;
     }
 }

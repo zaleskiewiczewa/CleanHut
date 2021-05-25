@@ -1,7 +1,9 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
+import lombok.ToString;
 import javax.validation.constraints.NotBlank;
 
+@ToString
 @Entity
 @Table(name = "service")
 public class Service {

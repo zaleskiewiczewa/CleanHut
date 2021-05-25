@@ -1,9 +1,10 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
+import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-//import pl.coderslab.beans.BCrypt;
 
+@ToString
 @Entity
 @Table(name = "users")
 public class User {
@@ -56,7 +57,5 @@ public class User {
         this.email = email;
     }
 
-    //public void hashPassword(){
-      // this.password=BCrypt.hashpw(this.password, BCrypt.gensalt());
-    //}
+
 }
