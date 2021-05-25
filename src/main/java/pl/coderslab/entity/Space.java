@@ -27,7 +27,7 @@ public class Space {
         return rooms;
     }
 
-    public void setRooms(String room) {
+    public void setRooms(String space) {
         this.rooms = rooms;
     }
 }

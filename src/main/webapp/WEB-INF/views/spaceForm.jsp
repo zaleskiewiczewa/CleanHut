@@ -12,9 +12,9 @@ Space
 
     <p hidden><form:input path="id"/></p>
 
-    <space for="space">Space</space>
-    <form:input path="space" id="space"/>
-    <form:errors path="space" cssClass="error"/>
+    <rooms for="rooms">Space</rooms>
+    <form:input path="rooms" id="rooms"/>
+    <form:errors path="rooms" cssClass="error"/>
     <br>
     
     <input type="submit" value="Save">

@@ -13,7 +13,7 @@ public class Data {
     private Long id;
 
     @DateTimeFormat
-    private int data;
+    private int dates;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class Data {
         this.id = id;
     }
 
-    public int getData() {
-        return data;
+    public int getDates() {
+        return dates;
     }
 
-    public void setData(int data) {
-        this.data = data;
+    public void setDates(int data) {
+        this.dates = dates;
     }
 }

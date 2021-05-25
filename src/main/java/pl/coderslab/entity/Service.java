@@ -14,7 +14,7 @@ public class Service {
 
 
     @NotBlank
-    private String service;
+    private String services;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class Service {
         this.id = id;
     }
 
-    public String getService() {
-        return service;
+    public String getServices() {
+        return services;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setServices(String service) {
+        this.services = services;
     }
 }
