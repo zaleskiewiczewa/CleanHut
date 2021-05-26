@@ -4,8 +4,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Space;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.SpaceRepository;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class SpaceController {
@@ -49,20 +51,14 @@ public class SpaceController {
         return "Removed this space";
     }
 
-    @RequestMapping(value = "space/form")
-    public String getSpaceForm(Model model) {
-        Space space = new Space();
-        model.addAttribute("space", space);
-        return "spaceForm";
+
+    @RequestMapping(value = {"/space/all"})
+    @ResponseBody
+    public String spaceAll () {
+        List<Space> all = spaceRepository.findAll();
+        return "Spaces: " + all.size();
     }
 
-    @RequestMapping(value = "/space/form", method = RequestMethod.POST)
-    public String postSpace(@ModelAttribute @Valid Space space, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-
-        }
-        return "spaceForm";
-    }
 }
 
 

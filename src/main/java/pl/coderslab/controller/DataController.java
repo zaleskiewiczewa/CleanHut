@@ -4,8 +4,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Data;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.DataRepository;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class DataController {
@@ -49,18 +51,11 @@ public class DataController {
         return "Removed this data";
     }
 
-    @RequestMapping(value = "/data/form")
-    public String getdataForm(Model model) {
-        Data data = new Data();
-        model.addAttribute("data", data);
-        return "dataForm";
+    @RequestMapping(value = {"/data/all"})
+    @ResponseBody
+    public String dataAll () {
+        List<Data> all = dataRepository.findAll();
+        return "Data: " + all.size();
     }
 
-    @RequestMapping(value = "/data/form", method = RequestMethod.POST)
-    public String postdata(@ModelAttribute @Valid Data data, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-
-        }
-        return "dataForm";
-    }
 }

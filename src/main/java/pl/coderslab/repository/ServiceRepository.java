@@ -2,8 +2,12 @@ package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.entity.Service;
+import pl.coderslab.entity.User;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -29,6 +33,11 @@ public class ServiceRepository {
     public void removeService(Long id) {
         Service service = entityManager.find(Service.class, id);
         entityManager.remove(entityManager.contains(service) ? service : entityManager.merge(service));
+    }
+
+    public List<Service> findAll() {
+        Query query = entityManager.createQuery("Select t from Service t");
+        return query.getResultList();
     }
 
     public Service findById(Long id) {

@@ -7,6 +7,9 @@ import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
 import javax.validation.Valid;
+import java.awt.print.Book;
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -28,43 +31,37 @@ public class UserController {
         return "User: " + user.getId();
     }
 
-    @RequestMapping (value = "/user/read/{id}")
+    @RequestMapping(value = "/user/read/{id}")
     @ResponseBody
-    public String readUser(@PathVariable long id){
-        User user= userRepository.findById(id);
+    public String readUser(@PathVariable long id) {
+        User user = userRepository.findById(id);
         return user.toString();
     }
 
-    @RequestMapping (value = "/user/update/{id}/{name}")
+    @RequestMapping(value = "/user/update/{id}/{name}")
     @ResponseBody
-    public String updateUser(@PathVariable  long id, @PathVariable String name){
-        User user =userRepository.findById(id);
+    public String updateUser(@PathVariable long id, @PathVariable String name) {
+        User user = userRepository.findById(id);
         user.setName(name);
         userRepository.updateUser(user);
         return user.toString();
     }
 
-    @RequestMapping (value = "/user/delete/{id}")
+    @RequestMapping(value = "/user/delete/{id}")
     @ResponseBody
-    public String removeUser(@PathVariable long id){
+    public String removeUser(@PathVariable long id) {
         User user = userRepository.findById(id);
         return "Removed this user";
     }
 
-    @RequestMapping(value = "user/form")
-    public String getuserForm(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "userForm";
-    }
-
-    @RequestMapping(value = "/user/form", method = RequestMethod.POST)
-    public String postuser(@ModelAttribute @Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-        }
-        return "userForm";
+    @RequestMapping(value = {"/user/all"})
+    @ResponseBody
+    public String bookAll () {
+        List<User> all = userRepository.findAll();
+        return "Users: " + all.size();
     }
 }
+
 
 
 

@@ -6,16 +6,14 @@
 
 </style>
 <body>
-
-
 Data
 <form:form method="post" modelAttribute="data" action="/data/form">
 
     <p hidden><form:input path="id"/></p>
 
-    <data for="data">Data</data>
-    <form:input path="data" id="data"/>
-    <form:errors path="data" cssClass="error"/>
+    <dates for="dates">Data</dates>
+    <form:input path="dates" id="dates"/>
+    <form:errors path="dates" cssClass="error"/>
     <br>
 
 </form:form>

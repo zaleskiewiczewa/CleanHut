@@ -2,6 +2,8 @@ package pl.coderslab.entity;
 import javax.persistence.*;
 import lombok.ToString;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @Entity
@@ -15,9 +17,14 @@ public class Space {
     @NotBlank
     private String rooms;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToMany (mappedBy = "dates")
+    private List<Data> data=new ArrayList<>();
+
+    public List<Data> getData() { return data; }
+
+    public void setData(List<Data> data) { this.data = data; }
+
+    public Long getId() { return id; }
 
     public void setId(Long id) {
         this.id = id;
@@ -30,4 +37,5 @@ public class Space {
     public void setRooms(String space) {
         this.rooms = rooms;
     }
+
 }

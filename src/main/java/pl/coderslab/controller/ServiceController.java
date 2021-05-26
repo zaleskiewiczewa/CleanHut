@@ -4,8 +4,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Service;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.ServiceRepository;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ServiceController {
@@ -49,19 +51,13 @@ public class ServiceController {
         return "Removed this service";
     }
 
-    @RequestMapping(value = "service/form")
-    public String getserviceForm(Model model) {
-        Service service = new Service();
-        model.addAttribute("service", service);
-        return "serviceForm";
+    @RequestMapping(value = {"/service/all"})
+    @ResponseBody
+    public String serviceAll () {
+        List<Service> all = serviceRepository.findAll();
+        return "Services: " + all.size();
     }
 
-    @RequestMapping(value = "/service/form", method = RequestMethod.POST)
-    public String postservice(@ModelAttribute @Valid Service service, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-        }
-        return "serviceForm";
-    }
 }
 
 
