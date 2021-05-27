@@ -12,7 +12,7 @@ import javax.validation.ConstraintViolation;
 import java.awt.print.Book;
 import java.util.Set;
 
-@Controller
+/*@Controller
 public class ValidationController {
 
     private final Logger logger = LoggerFactory.getLogger(ValidationController.class);
@@ -38,6 +38,6 @@ public class ValidationController {
             }
         }
         return output;
-    }
-}
+    }*/
+
 

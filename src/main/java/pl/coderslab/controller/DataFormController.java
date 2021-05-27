@@ -1,13 +1,9 @@
 package pl.coderslab.controller;
-
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Service;
 import pl.coderslab.entity.Space;
@@ -36,6 +32,7 @@ public class DataFormController {
     }
 
     @RequestMapping(value = "data/form")
+    @ResponseBody
     public String getDataForm(Model model) {
         Data data = new Data();
         model.addAttribute("data", data);
@@ -43,7 +40,8 @@ public class DataFormController {
     }
 
     @RequestMapping(value = "/data/form", method = RequestMethod.POST)
-    public String postData(@ModelAttribute @Valid Data data, BindingResult bindingResult) {
+    @ResponseBody
+    public String postData(@Valid Data data, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "dataForm";
         }
@@ -51,7 +49,8 @@ public class DataFormController {
         return "redirect:/data/list";
     }
 
-    @RequestMapping(value = "/data/delete/{id}")
+    @RequestMapping(value ="/data/delete/{id}")
+   @ResponseBody
     public String getDataFormById(@PathVariable Long id, Model model){
         Data data=dataRepository.findById(id);
         Hibernate.initialize(data.getDates());
@@ -60,6 +59,7 @@ public class DataFormController {
     }
 
     @RequestMapping(value = "/data/list", method = RequestMethod.POST)
+    @ResponseBody
     public String allDetas(Model model){
         List<Data> detas=dataRepository.findAll();
         model.addAttribute("detas", detas);

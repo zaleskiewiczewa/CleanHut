@@ -19,7 +19,6 @@ public class ServiceController {
     }
 
     @RequestMapping(value = {"/addservice"})
-    @ResponseBody
     public String home() {
         Service service = new Service();
         service.setId(1l);
@@ -29,14 +28,13 @@ public class ServiceController {
     }
 
     @RequestMapping (value = "/service/read/{id}")
-    @ResponseBody
     public String readService(@PathVariable long id){
         Service service= serviceRepository.findById(id);
         return service.toString();
     }
 
     @RequestMapping (value = "/service/update/{id}/{services}")
-    @ResponseBody
+
     public String updateService(@PathVariable  long id, @PathVariable String services){
         Service service =serviceRepository.findById(id);
         service.setServices(services);
@@ -45,14 +43,12 @@ public class ServiceController {
     }
 
     @RequestMapping (value = "/service/delete/{id}")
-    @ResponseBody
     public String removeservice(@PathVariable long id){
         Service service = serviceRepository.findById(id);
         return "Removed this service";
     }
 
     @RequestMapping(value = {"/service/all"})
-    @ResponseBody
     public String serviceAll () {
         List<Service> all = serviceRepository.findAll();
         return "Services: " + all.size();

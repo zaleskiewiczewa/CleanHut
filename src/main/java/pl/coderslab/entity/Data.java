@@ -39,8 +39,17 @@ public class Data {
         return dates;
     }
 
+    public List<Data> getData() {
+        return data;
+    }
+
+    public void setData(List<Data> data) {
+        this.data = data;
+    }
+
     public void setDates(int data) {
         this.dates = dates;
     }
+
 
     }
