@@ -39,7 +39,7 @@ public class DataFormController {
         return "dataForm";
     }
 
-    @RequestMapping(value = "/data/form", method = RequestMethod.POST)
+    @RequestMapping(value = "/dataform", method = RequestMethod.POST)
     @ResponseBody
     public String postData(@Valid Data data, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -49,7 +49,7 @@ public class DataFormController {
         return "redirect:/data/list";
     }
 
-    @RequestMapping(value ="/data/delete/{id}")
+    @RequestMapping(value ="/data/remove/{id}")
    @ResponseBody
     public String getDataFormById(@PathVariable Long id, Model model){
         Data data=dataRepository.findById(id);

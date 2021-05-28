@@ -34,14 +34,14 @@ public class ServiceFormController {
         this.serviceRepository = serviceRepository;
     }
 
-    @RequestMapping(value = "user/form")
+    @RequestMapping(value = "service/form")
     public String getServiceForm(Model model) {
         Service service = new Service();
         model.addAttribute("service", service);
         return "serviceForm";
     }
 
-    @RequestMapping(value = "/service/form", method = RequestMethod.POST)
+    @RequestMapping(value = "/serviceform", method = RequestMethod.POST)
     public String postService(@ModelAttribute @Valid Service service, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "serviceForm";
@@ -50,7 +50,7 @@ public class ServiceFormController {
         return "redirect:/service/list";
     }
 
-    @RequestMapping(value = "/service/delete/{id}")
+    @RequestMapping(value = "/service/remove/{id}")
     public String getServiceFormById(@PathVariable Long id, Model model){
         Service service=serviceRepository.findById(id);
         Hibernate.initialize(service.getServices());

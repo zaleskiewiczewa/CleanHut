@@ -17,7 +17,7 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat
+    @DateTimeFormat(pattern = "MM/dd/yyyyy")
     private int dates;
 
     @Size(min=1)

@@ -42,7 +42,7 @@ public class UserFormController {
         return "userForm";
     }
 
-    @RequestMapping(value = "/user/form", method = RequestMethod.POST)
+    @RequestMapping(value = "/userform", method = RequestMethod.POST)
     public String postUser(@ModelAttribute @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "userForm";
@@ -51,7 +51,7 @@ public class UserFormController {
         return "redirect:/user/list";
     }
 
-    @RequestMapping(value = "/user/delete/{id}")
+    @RequestMapping(value = "/user/remove/{id}")
     public String getUserFormById(@PathVariable Long id, Model model){
         User user=userRepository.findById(id);
         Hibernate.initialize(user.getUsers());

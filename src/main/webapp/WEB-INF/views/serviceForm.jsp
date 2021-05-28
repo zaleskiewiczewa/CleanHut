@@ -13,9 +13,9 @@ Service
 
     <p hidden><form:input path="id"/></p>
 
-    <service for="service">Service</service>
-    <form:input path="service" id="service"/>
-    <form:errors path="service" cssClass="service"/>
+    <services for="services">Service</services>
+    <form:input path="services" id="services"/>
+    <form:errors path="services" cssClass="services"/>
     <br>
 
     <input type="submit" value="Save">

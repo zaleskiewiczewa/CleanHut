@@ -6,9 +6,7 @@
 
 </style>
 <body>
-
-
-Author
+User
 <form:form method="post" modelAttribute="user" action="/user/form">
 
     <p hidden><form:input path="id"/></p>

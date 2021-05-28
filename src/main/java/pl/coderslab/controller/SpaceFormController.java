@@ -35,14 +35,14 @@ public class SpaceFormController {
         this.serviceRepository = serviceRepository;
     }
 
-    @RequestMapping(value = "space/form")
+    @RequestMapping(value = "/space/form")
     public String getSpaceForm(Model model) {
         Space space = new Space();
         model.addAttribute("space", space);
         return "spaceForm";
     }
 
-    @RequestMapping(value = "/space/form", method = RequestMethod.POST)
+    @RequestMapping(value = "/spaceform", method = RequestMethod.POST)
     public String postSpace(@ModelAttribute @Valid Space space, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "spaceForm";
@@ -51,7 +51,7 @@ public class SpaceFormController {
         return "redirect:/space/list";
     }
 
-    @RequestMapping(value = "/space/delete/{id}")
+    @RequestMapping(value = "/space/remove/{id}")
     public String getSpaceFormById(@PathVariable Long id, Model model){
         Space space=spaceRepository.findById(id);
         Hibernate.initialize(space.getRooms());
