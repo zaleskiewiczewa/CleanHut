@@ -6,3 +6,4 @@ JSP+ MySQL
 
 Functions:
 User registration, edition, user deletion. Saving activities and rooms. The application provides reminders of upcoming scheduled activities.
+![image](https://user-images.githubusercontent.com/71264664/120065609-719f4480-c072-11eb-9936-c70a1c7e1228.png)
