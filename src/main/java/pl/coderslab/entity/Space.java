@@ -34,7 +34,7 @@ public class Space {
         return rooms;
     }
 
-    public void setRooms(String space) {
+    public void setRooms(String rooms) {
         this.rooms = rooms;
     }
 

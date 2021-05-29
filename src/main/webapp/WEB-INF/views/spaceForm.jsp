@@ -12,10 +12,19 @@ Space
 
     <p hidden><form:input path="id"/></p>
 
-    <rooms for="rooms">Space</rooms>
+    <label for="rooms">Space</label>
     <form:input path="rooms" id="rooms"/>
     <form:errors path="rooms" cssClass="error"/>
     <br>
+
+    <form:select itemValue="id" itemLabel="name"
+                 path="rooms.id" items="${rooms}"/>
+    <form:errors path="rooms" cssClass="error"/>
+    <br>
+
+    <form:select itemValue="id" itemLabel="lastName" multiple="true"
+                 path="dates" items="${dates}"/>
+    <form:errors path="dates" cssClass="error"/>
     
     <input type="submit" value="Save">
 </form:form>

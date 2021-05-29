@@ -1,10 +1,10 @@
 package pl.coderslab.entity;
-import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +17,7 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat(pattern = "MM/dd/yyyyy")
-    private int dates;
+    private LocalDate dates;
 
     @Size(min=1)
     @ManyToMany
@@ -26,6 +25,14 @@ public class Data {
             joinColumns = @JoinColumn(name = "dates_id"),
             inverseJoinColumns = @JoinColumn(name = "rooms_id"))
     private List<Data> data = new ArrayList<>();
+
+    public LocalDate getDates() {
+        return dates;
+    }
+
+    public void setDates(LocalDate dates) {
+        this.dates = dates;
+    }
 
     public Long getId() {
         return id;
@@ -35,21 +42,12 @@ public class Data {
         this.id = id;
     }
 
-    public int getDates() {
-        return dates;
-    }
-
     public List<Data> getData() {
         return data;
     }
 
-    public void setData(List<Data> data) {
+    public void setData(int data) {
         this.data = data;
     }
-
-    public void setDates(int data) {
-        this.dates = dates;
-    }
-
 
     }

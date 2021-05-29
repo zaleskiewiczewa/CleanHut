@@ -7,15 +7,15 @@ import java.util.List;
 
 @ToString
 @Entity
-@Table(name = "service")
-public class Service {
+@Table(name = "activities")
+public class Activities {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String services;
+    private String activitiess;
 
     @ManyToMany (mappedBy = "users")
     private List<User>users=new ArrayList<>();
@@ -30,12 +30,12 @@ public class Service {
 
     public void setId(Long id) { this.id = id; }
 
-    public String getServices() {
-        return services;
+    public String getActivitiess() {
+        return activitiess;
     }
 
-    public void setServices(String service) {
-        this.services = services;
+    public void setActivitiess(String activities) {
+        this.activitiess = activitiess;
     }
 
 }

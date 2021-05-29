@@ -1,6 +1,5 @@
 package pl.coderslab.controller;
 import org.hibernate.Hibernate;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,12 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.coderslab.entity.Data;
-import pl.coderslab.entity.Service;
 import pl.coderslab.entity.Space;
-import pl.coderslab.entity.User;
+import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
-import pl.coderslab.repository.ServiceRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
@@ -25,14 +21,14 @@ public class SpaceFormController {
     private final UserRepository userRepository;
     private final DataRepository dataRepository;
     private final SpaceRepository spaceRepository;
-    private final ServiceRepository serviceRepository;
+    private final ActivitiesRepository activitiesRepository;
 
     public SpaceFormController(UserRepository userRepository, DataRepository dataRepository,
-                              SpaceRepository spaceRepository, ServiceRepository serviceRepository) {
+                              SpaceRepository spaceRepository, ActivitiesRepository activitiesRepository) {
         this.userRepository = userRepository;
         this.dataRepository = dataRepository;
         this.spaceRepository = spaceRepository;
-        this.serviceRepository = serviceRepository;
+        this.activitiesRepository = activitiesRepository;
     }
 
     @RequestMapping(value = "/space/form")
@@ -42,7 +38,7 @@ public class SpaceFormController {
         return "spaceForm";
     }
 
-    @RequestMapping(value = "/spaceform", method = RequestMethod.POST)
+    @RequestMapping(value = "/space/form", method = RequestMethod.POST)
     public String postSpace(@ModelAttribute @Valid Space space, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "spaceForm";
@@ -59,7 +55,7 @@ public class SpaceFormController {
         return "spaceForm";
     }
 
-    @RequestMapping(value = "/space/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/space/list", method = RequestMethod.GET)
     public String allSpaces(Model model){
         List<Space> spaces=spaceRepository.findAll();
         model.addAttribute("spaces", spaces);
@@ -76,9 +72,9 @@ public class SpaceFormController {
     //   return (Collection<Space>) spaceRepository.findAll();
     // }
 
-    //   @ModelAttribute("services")
-    //   public Collection<Service> publishers() {
-    //     return (Collection<Service>) serviceRepository.findAll();
+    //   @ModelAttribute("activitys")
+    //   public Collection<activity> publishers() {
+    //     return (Collection<activity>) activityRepository.findAll();
     //   }
 
 }

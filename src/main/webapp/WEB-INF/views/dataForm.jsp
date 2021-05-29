@@ -19,10 +19,12 @@ Data
 
     <p hidden><form:input path="id"/></p>
 
-    <dates for="dates">Data</dates>
+    <label for="dates">Data</label>
     <form:input path="dates" id="dates"/>
     <form:errors path="dates" cssClass="error"/>
     <br>
+
+    <input type="submit" value="Save">
 
 </form:form>
 

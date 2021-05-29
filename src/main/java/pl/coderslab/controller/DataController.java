@@ -1,12 +1,9 @@
 package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Data;
-import pl.coderslab.entity.User;
 import pl.coderslab.repository.DataRepository;
-import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -23,7 +20,7 @@ public class DataController {
     public String home() {
         Data data = new Data();
         data.setId(1l);
-       // data.setData(08,12,2021);
+        data.setData(2021-12-05);
         dataRepository.saveData(data);
         return "data: " + data.getId();
     }
@@ -37,7 +34,7 @@ public class DataController {
 
     @RequestMapping (value = "/data/update/{id}/{dates}")
     @ResponseBody
-    public String updateData(@PathVariable  long id, @PathVariable int dates){
+    public String updateData(@PathVariable long id, @PathVariable LocalDate dates){
         Data data =dataRepository.findById(id);
         data.setDates(dates);
         dataRepository.updateData(data);

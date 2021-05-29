@@ -8,14 +8,14 @@
 <body>
 
 
-Service
-<form:form method="post" modelAttribute="service" action="/service/form">
+Activities
+<form:form method="post" modelAttribute="activities" action="/activities/form">
 
     <p hidden><form:input path="id"/></p>
 
-    <services for="services">Service</services>
-    <form:input path="services" id="services"/>
-    <form:errors path="services" cssClass="services"/>
+    <label for="activities">Activities</label>
+    <form:input path="activities" id="qctivities"/>
+    <form:errors path="activities" cssClass="activities"/>
     <br>
 
     <input type="submit" value="Save">

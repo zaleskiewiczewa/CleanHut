@@ -1,6 +1,5 @@
 package pl.coderslab.controller;
 import org.hibernate.Hibernate;
-import org.hibernate.mapping.Collection;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,12 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.coderslab.entity.Data;
-import pl.coderslab.entity.Service;
-import pl.coderslab.entity.Space;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
-import pl.coderslab.repository.ServiceRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
@@ -25,24 +21,24 @@ public class UserFormController {
     private final UserRepository userRepository;
     private final DataRepository dataRepository;
     private final SpaceRepository spaceRepository;
-    private final ServiceRepository serviceRepository;
+    private final ActivitiesRepository activitiesRepository;
 
     public UserFormController(UserRepository userRepository, DataRepository dataRepository,
-                              SpaceRepository spaceRepository, ServiceRepository serviceRepository) {
+                              SpaceRepository spaceRepository, ActivitiesRepository activitiesRepository) {
         this.userRepository = userRepository;
         this.dataRepository = dataRepository;
         this.spaceRepository = spaceRepository;
-        this.serviceRepository = serviceRepository;
+        this.activitiesRepository = activitiesRepository;
     }
 
-    @RequestMapping(value = "user/form")
+    @RequestMapping(value = "/user/form")
     public String getUserForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "userForm";
     }
 
-    @RequestMapping(value = "/userform", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/form", method = RequestMethod.POST)
     public String postUser(@ModelAttribute @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "userForm";
@@ -59,7 +55,7 @@ public class UserFormController {
         return "userForm";
     }
 
-    @RequestMapping(value = "/user/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public String allUsers(Model model){
         List<User> users=userRepository.findAll();
         model.addAttribute("users", users);
