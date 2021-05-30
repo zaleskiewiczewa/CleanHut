@@ -4,26 +4,28 @@
 <html>
 <body>
 
-Spaces
+Users:
 <table>
     <th>ID</th>
     <th>Data</th>
     <th>User</th>
     <th>Activities</th>
+    <th>Delete</th>
+    <th>Update</th>
     <tr>
-        <c:forEach items="${space}" var="space">
-        <td>${space.id}</td>
-        <td>${space.data}</td>
-        <td>${space.user}</td>
-        <td>${space.activities}</td>
-        <td><a href="/space/room/${space.id}">Delete</a></td>
-        <td><a href="form/${space.id}">Update</a></td>
+        <c:forEach items="${user}" var="user">
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.password}</td>
+        <td>${user.email}</td>
+        <td><a href="/user/room/${user.id}">Delete</a></td>
+        <td><a href="form/${user.id}">Update</a></td>
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add space</a>
+<a href="form">Add user</a>
 
 </body>
 </html>

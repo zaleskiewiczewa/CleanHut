@@ -15,7 +15,7 @@ public class Activities {
     private Long id;
 
     @NotBlank
-    private String activitiess;
+    private String activities;
 
     @ManyToMany (mappedBy = "users")
     private List<User>users=new ArrayList<>();
@@ -30,12 +30,12 @@ public class Activities {
 
     public void setId(Long id) { this.id = id; }
 
-    public String getActivitiess() {
-        return activitiess;
+    public String getActivities() {
+        return activities;
     }
 
-    public void setActivitiess(String activities) {
-        this.activitiess = activitiess;
+    public void setActivities(String activities) {
+        this.activities = activities;
     }
 
 }

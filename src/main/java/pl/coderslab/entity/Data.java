@@ -19,12 +19,11 @@ public class Data {
 
     private LocalDate dates;
 
-    @Size(min=1)
     @ManyToMany
     @JoinTable(name = "dates_rooms",
             joinColumns = @JoinColumn(name = "dates_id"),
             inverseJoinColumns = @JoinColumn(name = "rooms_id"))
-    private List<Data> data = new ArrayList<>();
+    private LocalDate data = new ArrayList<>();
 
     public LocalDate getDates() {
         return dates;
@@ -46,7 +45,7 @@ public class Data {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

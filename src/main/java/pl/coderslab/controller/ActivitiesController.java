@@ -36,7 +36,7 @@ public class ActivitiesController {
     @ResponseBody
     public String updateActivities(@PathVariable  long id, @PathVariable String actvities){
         Activities activities =activitiesRepository.findById(id);
-        activities.setActivitiess(actvities);
+        activities.setActivities(actvities);
         activitiesRepository.updateActivities(activities);
         return activities.toString();
     }

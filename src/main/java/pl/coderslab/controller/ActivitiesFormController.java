@@ -48,7 +48,7 @@ public class ActivitiesFormController {
     @RequestMapping(value ="/activities/remove/{id}")
     public String getActivitiesFormById(@PathVariable Long id, Model model){
         Activities activities=activitiesRepository.findById(id);
-        Hibernate.initialize(activities.getActivitiess());
+        Hibernate.initialize(activities.getActivities());
         model.addAttribute("activities", activities);
         return "activitiesForm";
     }
