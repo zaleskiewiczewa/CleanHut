@@ -1,12 +1,8 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 @ToString
 @Entity
@@ -41,12 +37,11 @@ public class Data {
         this.id = id;
     }
 
-    public List<Data> getData() {
+    public LocalDate getData() {
         return data;
     }
 
     public void setData(LocalDate data) {
         this.data = data;
     }
-
-    }
+}
