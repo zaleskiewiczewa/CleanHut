@@ -20,7 +20,7 @@ public class DataController {
     public String home() {
         Data data = new Data();
         data.setId(1l);
-        data.setData(2021-12-05);
+        data.setDates(2021-12-05);
         dataRepository.saveData(data);
         return "data: " + data.getId();
     }
