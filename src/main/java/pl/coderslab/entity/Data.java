@@ -14,7 +14,7 @@ public class Data<datalist> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate dates;
+    private int dates;
 
 
     @ManyToMany
@@ -24,14 +24,13 @@ public class Data<datalist> {
 
     private List<Data> dateList=new ArrayList<>();
 
-    public LocalDate getDates() {
+    public int getDates() {
         return dates;
     }
 
-    public void setDates(LocalDate dates) {
+    public void setDates(int dates) {
         this.dates = dates;
     }
-
 
     public Long getId() {
         return id;
@@ -40,4 +39,6 @@ public class Data<datalist> {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 }

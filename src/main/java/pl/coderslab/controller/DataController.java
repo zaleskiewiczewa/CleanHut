@@ -20,7 +20,6 @@ public class DataController {
     public String home() {
         Data data = new Data();
         data.setId(1l);
-        data.setDates(2021-12-05);
         dataRepository.saveData(data);
         return "data: " + data.getId();
     }
@@ -36,7 +35,6 @@ public class DataController {
     @ResponseBody
     public String updateData(@PathVariable long id, @PathVariable LocalDate dates){
         Data data =dataRepository.findById(id);
-        data.setDates(dates);
         dataRepository.updateData(data);
         return data.toString();
     }
