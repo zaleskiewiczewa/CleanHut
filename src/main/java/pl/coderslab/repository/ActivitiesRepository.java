@@ -1,24 +1,27 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.entity.Activities;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
 @Transactional
-
+@Repository
 public class ActivitiesRepository {
 
     @PersistenceContext
     EntityManager entityManager;
 
-    public void saveActivities(Activities activities) {
-        entityManager.persist(activities);
+    public Activities saveActivities(Activities activities) {
+        if (activities.getId() == null) {
+            entityManager.persist(activities);
+        } else {
+            entityManager.merge(activities);
+        }
+        return activities;
     }
-
     public Activities readActivities(Long id){
         return entityManager.find(Activities.class, id);
     }

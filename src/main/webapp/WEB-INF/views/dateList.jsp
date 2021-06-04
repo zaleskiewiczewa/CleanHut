@@ -2,11 +2,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<body>
+<body bgcolor="#20b2aa">
 
-Dates:
+<h1 style="color: blueviolet">Dates</h1>
+<h2 style="color:green">List of dates </h2>
 <table>
-    <th>ID</th>
+    <th>Id</th>
     <th>Date</th>
     <th>Delete</th>
     <th>Update</th>

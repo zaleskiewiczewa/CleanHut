@@ -1,13 +1,16 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
 import lombok.ToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @ToString
 @Entity
-@Table(name = "space")
+@Table(name = "rooms")
 public class Space {
 
     @Id

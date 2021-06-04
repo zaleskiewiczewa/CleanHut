@@ -3,9 +3,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Data;
 import pl.coderslab.repository.DataRepository;
+
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+@Transactional
 @Controller
 public class DataController {
 

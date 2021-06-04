@@ -2,13 +2,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<body bgcolor="#add8e6">
+<body bgcolor="#20b2aa">
 <h1 style="color: blueviolet">Activities</h1>
-<h2 style="color:green">Table
+<h2 style="color:green">List of activities </h2>
 <table>
-    <th>ID</th>
-    <th>Activities</th>
-    <th>Users</th>
+    <th>Id</th>
     <th>Activities</th>
     <th>Delete</th>
     <th>Update</th>
@@ -24,6 +22,6 @@
 </table>
 
 <a href="form">Add activities</a>
-</h2>
+
 </body>
 </html>

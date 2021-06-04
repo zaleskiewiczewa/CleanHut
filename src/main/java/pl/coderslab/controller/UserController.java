@@ -1,10 +1,12 @@
 package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 import java.util.List;
 
+@Transactional
 @Controller
 public class UserController {
 
@@ -13,6 +15,7 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
 
     @RequestMapping(value = {"/adduser"})
     @ResponseBody
@@ -25,6 +28,7 @@ public class UserController {
         userRepository.saveUser(user);
         return "User: " + user.getId();
     }
+
 
     @RequestMapping(value = "/user/read/{id}")
     @ResponseBody

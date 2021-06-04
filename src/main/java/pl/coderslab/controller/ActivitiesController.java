@@ -4,8 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Activities;
 import pl.coderslab.repository.ActivitiesRepository;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @Controller
 public class ActivitiesController {
 
@@ -20,7 +23,7 @@ public class ActivitiesController {
     public String home() {
         Activities activities = new Activities();
         activities.setId(1l);
-        // activities.setactivities(08,12,2021);
+        activities.setActivities("Cleaning");
         activitiesRepository.saveActivities(activities);
         return "activities: " + activities.getId();
     }

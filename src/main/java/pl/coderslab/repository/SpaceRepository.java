@@ -1,24 +1,30 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Space;
 import pl.coderslab.entity.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
-
-@Repository
 @Transactional
+@Repository
+
 
 public class SpaceRepository {
 
     @PersistenceContext
     EntityManager entityManager;
 
-    public void saveSpace(Space space) {
-        entityManager.persist(space);
+    public Space saveSpace(Space space) {
+        if (space.getId() == null) {
+            entityManager.persist(space);
+        } else {
+            entityManager.merge(space);
+        }
+        return space;
+
     }
 
     public Space readSpace(Long id){

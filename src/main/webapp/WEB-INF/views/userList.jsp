@@ -2,24 +2,25 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<body>
-
-Users:
+<body bgcolor="#20b2aa">
+<h1 style="color: blueviolet">Users</h1>
+<h2 STYLE="color: blue" >List of users</h2>
 <table>
-    <th>ID</th>
+    <th>Id</th>
     <th>Data</th>
-    <th>User</th>
-    <th>Activities</th>
+    <th>Name</th>
+    <th>Password</th>
+    <th>Email</th>
     <th>Delete</th>
     <th>Update</th>
     <tr>
-        <c:forEach items="${user}" var="user">
-        <td>${user.id}</td>
-        <td>${user.name}</td>
-        <td>${user.password}</td>
-        <td>${user.email}</td>
-        <td><a href="/user/room/${user.id}">Delete</a></td>
-        <td><a href="form/${user.id}">Update</a></td>
+        <c:forEach items="${user}" var="users">
+        <td>${users.id}</td>
+        <td>${users.name}</td>
+        <td>${users.password}</td>
+        <td>${users.email}</td>
+        <td><a href="/user/room/${users.id}">Delete</a></td>
+        <td><a href="form/${users.id}">Update</a></td>
     </tr>
 
     </c:forEach>

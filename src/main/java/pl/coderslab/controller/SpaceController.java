@@ -3,8 +3,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Space;
 import pl.coderslab.repository.SpaceRepository;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @Controller
 public class SpaceController {
 
@@ -14,7 +17,7 @@ public class SpaceController {
         this.spaceRepository = spaceRepository;
     }
 
-    @RequestMapping(value = {"/addspace"})
+    @RequestMapping(value = {"/add/space"})
     @ResponseBody
     public String home() {
         Space space = new Space();

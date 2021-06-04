@@ -1,23 +1,30 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.entity.Data;
 import pl.coderslab.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.awt.print.Book;
 import java.util.List;
 
-@Repository
 @Transactional
+@Repository
 
 public class UserRepository {
 
     @PersistenceContext
     EntityManager entityManager;
 
-    public void saveUser(User user) {
-        entityManager.persist(user);
+    public User saveUser(User user) {
+        if (user.getId() == null) {
+            entityManager.persist(user);
+        } else {
+            entityManager.merge(user);
+        }
+        return user;
+
     }
 
     public User readUser(Long id){
