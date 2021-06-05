@@ -15,14 +15,14 @@
     <form:errors path="dates" cssClass="error"/>
     <br>
 
-    <form>
-        <select name="space">
-            <option value="B">Bathroom</option>
-            <option value="K">Kitchen</option>
-            <option value="R">Room 1</option>
-            <option value="L">Living Room</option>
-        </select>
-    </form>
+<%--    <form>--%>
+<%--        <select name="space">--%>
+<%--            <option value="B">Bathroom</option>--%>
+<%--            <option value="K">Kitchen</option>--%>
+<%--            <option value="R">Room 1</option>--%>
+<%--            <option value="L">Living Room</option>--%>
+<%--        </select>--%>
+<%--    </form>--%>
 
     <input type="submit" value="Save">
 

@@ -27,14 +27,14 @@ public class Data {
             joinColumns = @JoinColumn(name = "dates_id"),
             inverseJoinColumns = @JoinColumn(name = "rooms_id"))
 
-    private List<Data> dateList=new ArrayList<>();
+    private List<Space> spaces=new ArrayList<>();
 
-    public List<Data> getDateList() {
-        return dateList;
+    public List<Space> getSpaces() {
+        return spaces;
     }
 
-    public void setDateList(List<Data> dateList) {
-        this.dateList = dateList;
+    public void setSpaces(List<Space> spaces) {
+        this.spaces = spaces;
     }
 
     public String getDates() {

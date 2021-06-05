@@ -1,8 +1,6 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
 import lombok.ToString;
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +21,13 @@ public class Space {
     @ManyToMany (mappedBy = "dates")
     private List<Data> data=new ArrayList<>();
 
-    public List<Data> getData() { return data; }
+    public List<Data> getData() {
+        return data;
+    }
 
-    public void setData(List<Data> data) { this.data = data; }
+    public void setData(List<Data> data) {
+        this.data = data;
+    }
 
     public Long getId() { return id; }
 

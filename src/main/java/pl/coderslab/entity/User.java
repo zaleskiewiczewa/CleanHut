@@ -3,7 +3,6 @@ import javax.persistence.*;
 import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +25,12 @@ public class User {
     @Email
     private String email;
 
-    @Size(min=1)
     @ManyToMany
     @JoinTable(name = "users_activities",
             joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "activities_id"))
-            private List<User> users = new ArrayList<>();
+
+    private List<Activities> activities = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -65,11 +64,11 @@ public class User {
         this.email = email;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Activities> getActivities() {
+        return activities;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setActivities(List<Activities> activities) {
+        this.activities = activities;
     }
 }

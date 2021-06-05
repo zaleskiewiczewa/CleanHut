@@ -5,8 +5,6 @@ import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Entity
 @ToString
 @Table(name = "activities")
@@ -19,12 +17,16 @@ public class Activities {
     @NotBlank
     private String activities;
 
-    @ManyToMany (mappedBy = "users")
+    @ManyToMany (mappedBy = "activities")
     private List<User>users=new ArrayList<>();
 
-    public List<User> getUsers() { return users; }
+    public List<User> getUsers() {
+        return users;
+    }
 
-    public void setUsers(List<User> listofUsers) { this.users = listofUsers; }
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public Long getId() {
         return id;

@@ -24,26 +24,13 @@
     <form:errors path="email" cssClass="email"/>
     <br>
 
-    <form>
-        <select name="space">
-            <option value="B">Week 23</option>
-            <option value="K">Week 24</option>
-            <option value="R">Week 25</option>
-            <option value="L">Week 26</option>
-            <option value="M">Week 27</option>
-            <option value="T">Week 28</option>
-        </select>
-    </form>
+    <form:select itemValue="id" itemLabel="name"
+                 path="publisher.id" items="${publishers}"/>
+    <br>
 
-    <form>
-        <select name="space">
-            <option value="B">Bathroom</option>
-            <option value="K">Kitchen</option>
-            <option value="R">Room 1</option>
-            <option value="L">Living Room</option>
-            <option value="M">Corridor</option>
-        </select>
-    </form>
+    <form:select itemValue="id" itemLabel="lastName" multiple="true"
+                 path="authors" items="${authors}"/>
+
     <input type="submit" value="Save">
 </form:form>
 </h2>

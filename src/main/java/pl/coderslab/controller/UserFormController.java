@@ -48,7 +48,7 @@ public class UserFormController {
     @RequestMapping(value = "/user/form/{id}")
     public String getUserFormById(@PathVariable Long id, Model model) {
         User user = userRepository.findById(id);
-        Hibernate.initialize(user.getUsers());
+        Hibernate.initialize(user.getActivities());
         model.addAttribute("user", user);
         return "userForm";
     }

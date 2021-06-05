@@ -23,6 +23,7 @@ public class DataController {
     public String home() {
         Data data = new Data();
         data.setId(1l);
+        data.setDates("Week 24");
         dataRepository.saveData(data);
         return "data: " + data.getId();
     }
