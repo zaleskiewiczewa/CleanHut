@@ -9,12 +9,14 @@
 <table>
     <th>Id</th>
     <th>Date</th>
+    <th>Rooms</th>
     <th>Delete</th>
     <th>Update</th>
     <tr>
         <c:forEach items="${data}" var="data">
         <td>${data.id}</td>
         <td>${data.dates}</td>
+            <td>${data.rooms}</td>
         <td><a href="/data/room/${data.id}">Delete</a></td>
         <td><a href="form/${data.id}">Update</a></td>
     </tr>

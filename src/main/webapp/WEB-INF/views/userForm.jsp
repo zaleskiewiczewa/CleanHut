@@ -24,14 +24,25 @@
     <form:errors path="email" cssClass="email"/>
     <br>
 
-    <form:select itemValue="id" itemLabel="activities"
-                 path="activities.id" items="${activities}"/>
-    <br>
+    <label for="space">Choose dates</label>
+    <select id="space">
+        <option value="B">Week 23</option>
+        <option value="K">Week 24</option>
+        <option value="R">Week 25</option>
+        <option value="L">Week 26</option>
+        <option value="M">Week 27</option>
+        <option value="N">Week 28</option>
+    </select>
 
-    <form:select itemValue="id" itemLabel="activities"
-                 path=".id" items="${activities}"/>
-    <br>
-
+    <label for="space">Choose rooms</label>
+    <select id="space">
+        <option value="B">Kitchen</option>
+        <option value="K">Bathroom</option>
+        <option value="R">Room 1</option>
+        <option value="L">Room 2</option>
+        <option value="M">Living Room </option>
+        <option value="N">Corridor</option>
+    </select>
     <input type="submit" value="Save">
 </form:form>
 </h2>

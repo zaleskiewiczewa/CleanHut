@@ -1,9 +1,6 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import pl.coderslab.entity.Activities;
 import pl.coderslab.entity.Data;
-import pl.coderslab.entity.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -37,10 +34,11 @@ public class DataRepository {
         return data;
     }
 
-    public void removeData(Long id) {
+    public static void removeData(Long id) {
         Data data = entityManager.find(Data.class, id);
         entityManager.remove(entityManager.contains(data) ? data : entityManager.merge(data));
     }
+
     public List<Data> findAll() {
         Query query = entityManager.createQuery("Select t from Data t");
         return query.getResultList();

@@ -8,14 +8,16 @@
 <table>
     <th>Id</th>
     <th>Rooms</th>
+    <th>Dates</th>
     <th>Delete</th>
     <th>Update</th>
     <tr>
-        <c:forEach items="${space}" var="space">
-        <td>${space.id}</td>
-        <td>${space.rooms}</td>
-        <td><a href="/rooms/room/${space.id}">Delete</a></td>
-        <td><a href="form/${space.id}">Update</a></td>
+        <c:forEach items="${rooms}" var="rooms">
+        <td>${rooms.id}</td>
+        <td>${rooms.rooms}</td>
+            <td>${rooms.data}</td>
+        <td><a href="/rooms/room/${rooms.id}">Delete</a></td>
+        <td><a href="form/${rooms.id}">Update</a></td>
     </tr>
 
     </c:forEach>

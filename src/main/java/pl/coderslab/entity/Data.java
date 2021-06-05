@@ -1,9 +1,6 @@
 package pl.coderslab.entity;
 import javax.persistence.*;
 import lombok.ToString;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +11,7 @@ public class Data {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int dates;
+    private String dates;
     @ManyToMany
     @JoinTable(name = "dates_rooms",
             joinColumns = @JoinColumn(name = "dates_id"),
@@ -30,11 +27,11 @@ public class Data {
         this.dateList = dateList;
     }
 
-    public int getDates() {
+    public String getDates() {
         return dates;
     }
 
-    public void setDates(int dates) {
+    public void setDates(String dates) {
         this.dates = dates;
     }
 

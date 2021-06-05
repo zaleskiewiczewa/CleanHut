@@ -37,8 +37,22 @@ public class ActivitiesFormController {
         return "activitiesForm";
     }
 
+    @RequestMapping(value = "/activities/remove/{id}")
+    public String deleteById(@PathVariable Long id) {
+        activitiesRepository.removeActivities(id);
+        return "redirect:/activities/list";
+    }
+
+    @RequestMapping(value = "/activities/form/{id}")
+    public String getActivitiesFormById(@PathVariable Long id, Model model) {
+       Activities activities = activitiesRepository.findById(id);
+        Hibernate.initialize(activities.getActivities());
+        model.addAttribute("activities", activities);
+        return "activitiesForm";
+    }
+
     @RequestMapping(value = "/activities/form", method = RequestMethod.POST)
-    public String postActivities(@ModelAttribute  @Valid Activities activities, BindingResult bindingResult) {
+    public String postActivities(@ModelAttribute @Valid Activities activities, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "activitiesForm";
         }
@@ -46,34 +60,25 @@ public class ActivitiesFormController {
         return "redirect:/activities/list";
     }
 
-    @RequestMapping(value ="/activities/remove/{id}")
-    public String getActivitiesFormById(@PathVariable Long id, Model model){
-        Activities activities=activitiesRepository.findById(id);
-        Hibernate.initialize(activities.getActivities());
-        model.addAttribute("activities", activities);
-        return "activitiesForm";
-    }
-
     @RequestMapping(value = "/activities/list", method = RequestMethod.GET)
-    public String allActivities(Model model){
-        List<Activities> activities=activitiesRepository.findAll();
+    public String allActivities(Model model) {
+        List<Activities> activities = activitiesRepository.findAll();
         model.addAttribute("activities", activities);
         return "activitiesList";
     }
-
     //  @ModelAttribute("dates")
-    //   public Collection<activities> publishers() {
-    //      return (Collection<activities>) activitiesRepository.findAll();
+    //   public Collection<dates> dates() {
+    //      return (Collection<dates>) dataRepository.findAll();
     //  }
 
     //  @ModelAttribute("spaces")
-    //public Collection<Space> publishers() {
+    //public Collection<Space> spaces() {
     //   return (Collection<Space>) spaceRepository.findAll();
     // }
 
-    //   @ModelAttribute("services")
-    //   public Collection<Service> publishers() {
-    //     return (Collection<Service>) serviceRepository.findAll();
+    //   @ModelAttribute("activities")
+    //   public Collection<Activities> activities() {
+    //     return (Collection<Activities>) activitiesRepository.findAll();
     //   }
 
 }

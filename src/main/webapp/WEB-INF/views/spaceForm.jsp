@@ -11,8 +11,18 @@
 
     <label for="rooms">Space</label>
     <form:input path="rooms" id="rooms"/>
-    <form:errors path="rooms" cssClass="error"/>
+    <form:errors path="rooms" cssClass="rooms"/>
     <br>
+
+    <label for="space">Choose dates</label>
+    <select id="space">
+        <option value="B">Week 23</option>
+        <option value="K">Week 24</option>
+        <option value="R">Week 25</option>
+        <option value="L">Week 26</option>
+        <option value="M">Week 27</option>
+        <option value="N">Week 28</option>
+    </select>
 
     <input type="submit" value="Save">
 </form:form>

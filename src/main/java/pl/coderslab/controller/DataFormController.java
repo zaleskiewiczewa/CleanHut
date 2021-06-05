@@ -4,14 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.entity.Activities;
 import pl.coderslab.entity.Data;
-import pl.coderslab.entity.Space;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -32,13 +31,27 @@ public class DataFormController {
 
     @RequestMapping(value = "/data/form")
     public String getDataForm(Model model) {
-        Data data = new Data();
+       Data data = new Data();
+        model.addAttribute("data", data);
+        return "dataForm";
+    }
+
+    @RequestMapping(value = "/data/remove/{id}")
+    public String removeById(@PathVariable Long id) {
+       DataRepository.removeData(id);
+        return "redirect:/data/list";
+    }
+
+    @RequestMapping(value = "/data/form/{id}")
+    public String getDataFormById(@PathVariable Long id, Model model) {
+        Data data = dataRepository.findById(id);
+        Hibernate.initialize(data.getDates());
         model.addAttribute("data", data);
         return "dataForm";
     }
 
     @RequestMapping(value = "/data/form", method = RequestMethod.POST)
-    public String postData(@Valid Data data, BindingResult bindingResult) {
+    public String postData(@ModelAttribute @Valid Data data, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "dataForm";
         }
@@ -46,21 +59,12 @@ public class DataFormController {
         return "redirect:/data/list";
     }
 
-    @RequestMapping(value ="/data/remove/{id}")
-    public String getDataFormById(@PathVariable Long id, Model model){
-        Data data=dataRepository.findById(id);
-        Hibernate.initialize(data.getDates());
-        model.addAttribute("data", data);
-        return "dataForm";
-    }
-
     @RequestMapping(value = "/data/list", method = RequestMethod.GET)
-    public String allDates(Model model){
-        List<Data> dates=dataRepository.findAll();
-        model.addAttribute("dates", dates);
-        return "dateList";
+    public String allData(Model model) {
+        List<Data> data = dataRepository.findAll();
+        model.addAttribute("data", data);
+        return "dataList";
     }
-
    //  @ModelAttribute("dates")
      // public Collection<Data> publishers() {
        //return (Collection<Data>) dataRepository.findAll();

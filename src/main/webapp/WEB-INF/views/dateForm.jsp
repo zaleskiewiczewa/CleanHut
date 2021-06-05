@@ -10,7 +10,7 @@
 
     <p hidden><form:input path="id"/></p>
 
-    <label for="dates">Data</label>
+    <label for="dates">Date</label>
     <form:input path="dates" id="dates"/>
     <form:errors path="dates" cssClass="error"/>
     <br>

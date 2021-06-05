@@ -18,7 +18,7 @@ public class ActivitiesController {
         this.activitiesRepository = activitiesRepository;
     }
 
-    @RequestMapping(value = {"/addactivities"})
+    @RequestMapping(value = {"/addActivities"})
     @ResponseBody
     public String home() {
         Activities activities = new Activities();
