@@ -62,8 +62,8 @@ public class ActivitiesFormController {
 
     @RequestMapping(value = "/activities/list", method = RequestMethod.GET)
     public String allActivities(Model model) {
-        List<Activities> activities = activitiesRepository.findAll();
-        model.addAttribute("activities", activities);
+        List<Activities> activitiesList = activitiesRepository.findAll();
+        model.addAttribute("activities", activitiesList);
         return "activitiesList";
     }
     //  @ModelAttribute("dates")

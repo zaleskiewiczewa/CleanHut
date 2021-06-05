@@ -24,25 +24,26 @@
     <form:errors path="email" cssClass="email"/>
     <br>
 
-    <label for="space">Choose dates</label>
-    <select id="space">
-        <option value="B">Week 23</option>
-        <option value="K">Week 24</option>
-        <option value="R">Week 25</option>
-        <option value="L">Week 26</option>
-        <option value="M">Week 27</option>
-        <option value="N">Week 28</option>
-    </select>
+    <form>
+        <select name="space">
+            <option value="B">Week 23</option>
+            <option value="K">Week 24</option>
+            <option value="R">Week 25</option>
+            <option value="L">Week 26</option>
+            <option value="M">Week 27</option>
+            <option value="T">Week 28</option>
+        </select>
+    </form>
 
-    <label for="space">Choose rooms</label>
-    <select id="space">
-        <option value="B">Kitchen</option>
-        <option value="K">Bathroom</option>
-        <option value="R">Room 1</option>
-        <option value="L">Room 2</option>
-        <option value="M">Living Room </option>
-        <option value="N">Corridor</option>
-    </select>
+    <form>
+        <select name="space">
+            <option value="B">Bathroom</option>
+            <option value="K">Kitchen</option>
+            <option value="R">Room 1</option>
+            <option value="L">Living Room</option>
+            <option value="M">Corridor</option>
+        </select>
+    </form>
     <input type="submit" value="Save">
 </form:form>
 </h2>

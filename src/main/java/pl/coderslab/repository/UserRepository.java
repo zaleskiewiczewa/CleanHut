@@ -1,12 +1,10 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import pl.coderslab.entity.Data;
 import pl.coderslab.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-import java.awt.print.Book;
 import java.util.List;
 
 @Transactional

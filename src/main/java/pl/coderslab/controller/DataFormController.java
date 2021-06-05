@@ -36,11 +36,11 @@ public class DataFormController {
         return "dataForm";
     }
 
-    @RequestMapping(value = "/data/remove/{id}")
-    public String removeById(@PathVariable Long id) {
-       DataRepository.removeData(id);
-        return "redirect:/data/list";
-    }
+  //  @RequestMapping(value = "/data/remove/{id}")
+    //public String deleteById(@PathVariable Long id) {
+    //   DataRepository.
+      //  return "redirect:/data/list";
+    //}
 
     @RequestMapping(value = "/data/form/{id}")
     public String getDataFormById(@PathVariable Long id, Model model) {
@@ -61,8 +61,8 @@ public class DataFormController {
 
     @RequestMapping(value = "/data/list", method = RequestMethod.GET)
     public String allData(Model model) {
-        List<Data> data = dataRepository.findAll();
-        model.addAttribute("data", data);
+        List<Data> dataList = dataRepository.findAll();
+        model.addAttribute("data", dataList);
         return "dataList";
     }
    //  @ModelAttribute("dates")

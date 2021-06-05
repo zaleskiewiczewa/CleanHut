@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.coderslab.entity.Activities;
 import pl.coderslab.entity.Space;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
@@ -38,8 +39,22 @@ public class SpaceFormController {
         return "spaceForm";
     }
 
+    @RequestMapping(value = "/space/remove/{id}")
+    public String deleteById(@PathVariable Long id) {
+        spaceRepository.removeSpace(id);
+        return "redirect:/space/list";
+    }
+
+    @RequestMapping(value = "/space/form/{id}")
+    public String getSpaceFormById(@PathVariable Long id, Model model) {
+        Space space = spaceRepository.findById(id);
+        Hibernate.initialize(space.getRooms());
+        model.addAttribute("space", space);
+        return "spaceForm";
+    }
+
     @RequestMapping(value = "/space/form", method = RequestMethod.POST)
-    public String postSpace(@ModelAttribute @Valid Space space, BindingResult bindingResult) {
+    public String postActivities(@ModelAttribute @Valid Space space, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "spaceForm";
         }
@@ -47,21 +62,12 @@ public class SpaceFormController {
         return "redirect:/space/list";
     }
 
-    @RequestMapping(value = "/space/remove/{id}")
-    public String getSpaceFormById(@PathVariable Long id, Model model){
-        Space space=spaceRepository.findById(id);
-        Hibernate.initialize(space.getRooms());
-        model.addAttribute("space", space);
-        return "spaceForm";
-    }
-
     @RequestMapping(value = "/space/list", method = RequestMethod.GET)
-    public String allSpaces(Model model){
-        List<Space> spaces=spaceRepository.findAll();
-        model.addAttribute("spaces", spaces);
+    public String allSpace(Model model) {
+        List<Space> spaceList = spaceRepository.findAll();
+        model.addAttribute("space", spaceList);
         return "spaceList";
     }
-
     //  @ModelAttribute("dates")
     //   public Collection<Data> publishers() {
     //      return (Collection<Data>) dataRepository.findAll();

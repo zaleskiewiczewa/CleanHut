@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.coderslab.entity.Activities;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
@@ -38,6 +39,20 @@ public class UserFormController {
         return "userForm";
     }
 
+    @RequestMapping(value = "/user/remove/{id}")
+    public String deleteById(@PathVariable Long id) {
+        userRepository.removeUser(id);
+        return "redirect:/user/list";
+    }
+
+    @RequestMapping(value = "/user/form/{id}")
+    public String getUserFormById(@PathVariable Long id, Model model) {
+        User user = userRepository.findById(id);
+        Hibernate.initialize(user.getUsers());
+        model.addAttribute("user", user);
+        return "userForm";
+    }
+
     @RequestMapping(value = "/user/form", method = RequestMethod.POST)
     public String postUser(@ModelAttribute @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -47,18 +62,10 @@ public class UserFormController {
         return "redirect:/user/list";
     }
 
-    @RequestMapping(value = "/user/remove/{id}")
-    public String getUserFormById(@PathVariable Long id, Model model){
-        User user=userRepository.findById(id);
-        Hibernate.initialize(user.getUsers());
-        model.addAttribute("user", user);
-        return "userForm";
-    }
-
     @RequestMapping(value = "/user/list", method = RequestMethod.GET)
-    public String allUsers(Model model){
-        List<User> users=userRepository.findAll();
-        model.addAttribute("users", users);
+    public String allUser(Model model) {
+        List<User> userList = userRepository.findAll();
+        model.addAttribute("user", userList);
         return "userList";
     }
 

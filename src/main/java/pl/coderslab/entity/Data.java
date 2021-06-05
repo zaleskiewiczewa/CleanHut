@@ -12,6 +12,16 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String dates;
+    private String rooms;
+
+    public String getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(String rooms) {
+        this.rooms = rooms;
+    }
+
     @ManyToMany
     @JoinTable(name = "dates_rooms",
             joinColumns = @JoinColumn(name = "dates_id"),

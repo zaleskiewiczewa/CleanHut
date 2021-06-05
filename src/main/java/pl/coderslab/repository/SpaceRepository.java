@@ -1,8 +1,6 @@
 package pl.coderslab.repository;
 import org.springframework.stereotype.Repository;
-import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Space;
-import pl.coderslab.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;

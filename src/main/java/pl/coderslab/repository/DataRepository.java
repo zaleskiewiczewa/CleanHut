@@ -34,7 +34,7 @@ public class DataRepository {
         return data;
     }
 
-    public static void removeData(Long id) {
+    public void removeData(Long id) {
         Data data = entityManager.find(Data.class, id);
         entityManager.remove(entityManager.contains(data) ? data : entityManager.merge(data));
     }

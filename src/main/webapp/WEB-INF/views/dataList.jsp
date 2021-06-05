@@ -16,8 +16,8 @@
         <c:forEach items="${data}" var="data">
         <td>${data.id}</td>
         <td>${data.dates}</td>
-            <td>${data.rooms}</td>
-        <td><a href="/data/room/${data.id}">Delete</a></td>
+            <td> ${data.rooms}</td>
+        <td><a href="//room/${data.id}">Delete</a></td>
         <td><a href="form/${data.id}">Update</a></td>
     </tr>
 
