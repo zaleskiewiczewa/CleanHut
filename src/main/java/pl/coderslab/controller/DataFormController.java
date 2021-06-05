@@ -4,13 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.entity.Activities;
 import pl.coderslab.entity.Data;
+import pl.coderslab.entity.Space;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -65,19 +66,10 @@ public class DataFormController {
         model.addAttribute("data", dataList);
         return "dataList";
     }
-   //  @ModelAttribute("dates")
-     // public Collection<Data> publishers() {
-       //return (Collection<Data>) dataRepository.findAll();
-   //   }
 
-   //   @ModelAttribute("spaces")
-   //   public Collection<Space> publishers() {
-     // return (Collection<Space>) spaceRepository.findAll();
-     //}
-
-    //   @ModelAttribute("services")
-    //   public Collection<Service> publishers() {
-    //     return (Collection<Service>) serviceRepository.findAll();
-    //   }
+   @ModelAttribute("rooms")
+    public Collection<Space> rooms() {
+      return this.spaceRepository.findAll();
+     }
 
 }

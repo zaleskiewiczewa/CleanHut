@@ -2,6 +2,7 @@ package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Data;
+import pl.coderslab.entity.Space;
 import pl.coderslab.repository.DataRepository;
 
 import javax.transaction.Transactional;
@@ -24,6 +25,7 @@ public class DataController {
         Data data = new Data();
         data.setId(1l);
         data.setDates("Week 24");
+        data.setRooms("Bathroom");
         dataRepository.saveData(data);
         return "data: " + data.getId();
     }

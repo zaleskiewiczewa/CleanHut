@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 
 @Transactional
@@ -47,5 +48,6 @@ public class DataRepository {
     public Data findById(Long id) {
         return entityManager.find(Data.class, id);
     }
-
 }
+
+

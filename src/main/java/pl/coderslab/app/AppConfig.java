@@ -15,6 +15,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.controller.ActivitiesConverter;
+import pl.coderslab.controller.SpaceConverter;
+import pl.coderslab.entity.Activities;
+import pl.coderslab.entity.Space;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -61,4 +65,25 @@ public class AppConfig implements WebMvcConfigurer {
     public Validator validator() {
         return new LocalValidatorFactoryBean();
     }
+
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getSpaceConverter());
+        registry.addConverter(getActivitiesConverter());
+    }
+
+    @Bean
+    public SpaceConverter getSpaceConverter() {
+        return new SpaceConverter();
+    }
+
+    @Bean
+    public ActivitiesConverter getActivitiesConverter() {
+        return new ActivitiesConverter();
+    }
 }
+
+
+
+

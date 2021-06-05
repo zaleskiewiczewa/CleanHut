@@ -14,16 +14,9 @@
     <form:errors path="rooms" cssClass="rooms"/>
     <br>
 
-<%--    <form>--%>
-<%--        <select name="space">--%>
-<%--            <option value="B">Week 23</option>--%>
-<%--            <option value="K">Week 24</option>--%>
-<%--            <option value="R">Week 25</option>--%>
-<%--            <option value="L">Week 26</option>--%>
-<%--            <option value="M">Week 27</option>--%>
-<%--            <option value="T">Week 28</option>--%>
-<%--        </select>--%>
-<%--    </form>--%>
+    <form:select itemValue="id" itemLabel="name"
+                 path="data" items="${dates}"/>
+    <br>
 
     <input type="submit" value="Save">
 </form:form>

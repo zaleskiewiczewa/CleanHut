@@ -25,11 +25,10 @@
     <br>
 
     <form:select itemValue="id" itemLabel="name"
-                 path="publisher.id" items="${publishers}"/>
+                 path="activities" items="${activities}"/>
     <br>
 
-    <form:select itemValue="id" itemLabel="lastName" multiple="true"
-                 path="authors" items="${authors}"/>
+
 
     <input type="submit" value="Save">
 </form:form>
