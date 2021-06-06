@@ -3,9 +3,13 @@ import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Activities;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.ActivitiesRepository;
+import pl.coderslab.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.awt.print.Book;
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -25,6 +29,10 @@ public class ActivitiesController {
         activities.setId(1l);
         activities.setActivities("Cleaning");
         activitiesRepository.saveActivities(activities);
+        Activities activities2 = new Activities();
+        activities.setId(2l);
+        activities.setActivities("Ironing");
+        activitiesRepository.saveActivities(activities2);
         return "activities: " + activities.getId();
     }
 

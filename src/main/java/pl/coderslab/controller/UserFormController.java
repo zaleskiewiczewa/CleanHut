@@ -76,14 +76,6 @@ public class UserFormController {
         return this.activitiesRepository.findAll();
     }
 
-  //  @ModelAttribute("spaces")
-    //public Collection<Space> publishers() {
-     //   return (Collection<Space>) spaceRepository.findAll();
-   // }
 
- //   @ModelAttribute("services")
- //   public Collection<Service> publishers() {
-   //     return (Collection<Service>) serviceRepository.findAll();
- //   }
 
 }

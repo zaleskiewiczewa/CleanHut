@@ -11,16 +11,14 @@
     <th>Name</th>
     <th>Password</th>
     <th>Email</th>
-<%--    <th>Delete</th>--%>
-<%--    <th>Update</th>--%>
+
     <tr>
         <c:forEach items="${user}" var="users">
         <td>${users.id}</td>
         <td>${users.name}</td>
         <td>${users.password}</td>
         <td>${users.email}</td>
-<%--        <td><a href="/user/room/${users.id}">Delete</a></td>--%>
-<%--        <td><a href="form/${users.id}">Update</a></td>--%>
+
     </tr>
 
     </c:forEach>

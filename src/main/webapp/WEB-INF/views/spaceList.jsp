@@ -8,14 +8,12 @@
 <table>
     <th>Id</th>
     <th>Space</th>
-    <%--    <th>Delete</th>--%>
-    <%--    <th>Update</th>--%>
+
     <tr>
         <c:forEach items="${space}" var="rooms">
         <td>${rooms.id}</td>
         <td>${rooms.rooms}</td>
-            <%--        <td><a href="/activities/room/${activities.id}">Delete</a></td>--%>
-            <%--        <td><a href="form/${activities.id}">Update</a></td>--%>
+
     </tr>
 
     </c:forEach>

@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.entity.Activities;
+import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Space;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -68,19 +70,9 @@ public class SpaceFormController {
         model.addAttribute("space", spaceList);
         return "spaceList";
     }
-    //  @ModelAttribute("dates")
-    //   public Collection<Data> publishers() {
-    //      return (Collection<Data>) dataRepository.findAll();
-    //  }
-
-    //  @ModelAttribute("spaces")
-    //public Collection<Space> publishers() {
-    //   return (Collection<Space>) spaceRepository.findAll();
-    // }
-
-    //   @ModelAttribute("activitys")
-    //   public Collection<activity> publishers() {
-    //     return (Collection<activity>) activityRepository.findAll();
-    //   }
+    @ModelAttribute("dates")
+    public Collection<Data> dates() {
+        return this.dataRepository.findAll();
+    }
 
 }

@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.entity.Activities;
+import pl.coderslab.entity.Space;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.ActivitiesRepository;
 import pl.coderslab.repository.DataRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -66,19 +69,14 @@ public class ActivitiesFormController {
         model.addAttribute("activities", activitiesList);
         return "activitiesList";
     }
-    //  @ModelAttribute("dates")
-    //   public Collection<dates> dates() {
-    //      return (Collection<dates>) dataRepository.findAll();
-    //  }
 
-    //  @ModelAttribute("spaces")
-    //public Collection<Space> spaces() {
-    //   return (Collection<Space>) spaceRepository.findAll();
-    // }
 
-    //   @ModelAttribute("activities")
-    //   public Collection<Activities> activities() {
-    //     return (Collection<Activities>) activitiesRepository.findAll();
-    //   }
+    @ModelAttribute("users")
+    public Collection<User> users() {
+        return this.userRepository.findAll();
+    }
+
+
+
 
 }
