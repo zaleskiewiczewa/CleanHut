@@ -2,8 +2,7 @@ package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Room;
-import pl.coderslab.entity.room;
-import pl.coderslab.repository.roomRepository;
+import pl.coderslab.repository.RoomRepository;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -29,17 +28,17 @@ public class RoomController {
 
     @RequestMapping (value = "/room/read/{id}")
     @ResponseBody
-    public String readroom(@PathVariable long id){
+    public String readRoom(@PathVariable long id){
         Room room= roomRepository.findById(id);
         return room.toString();
     }
 
     @RequestMapping (value = "/room/update/{id}/{room}")
     @ResponseBody
-    public String updateroom(@PathVariable  long id, @PathVariable String room){
-        Room room =roomRepository.findById(id);
+    public String updateRoom(@PathVariable  long id, @PathVariable String room){
+        Room room1 =roomRepository.findById(id);
         room.setRooms(room);
-        roomRepository.updateRoom(room);
+        roomRepository.updateRoom(room1);
         return room.toString();
     }
 

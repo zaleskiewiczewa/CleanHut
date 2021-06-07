@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.coderslab.entity.room;
+import pl.coderslab.entity.Room;
 import pl.coderslab.repository.CleaningRepository;
-import pl.coderslab.repository.roomRepository;
+import pl.coderslab.repository.RoomRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.repository.WeekRepository;
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -24,8 +23,8 @@ public class RoomFormController {
     private final RoomRepository roomRepository;
     private final CleaningRepository cleaningRepository;
 
-    public roomFormController(UserRepository userRepository, WeekRepository weekRepository,
-                              roomRepository roomRepository, CleaningRepository cleaningRepository) {
+    public RoomFormController(UserRepository userRepository, WeekRepository weekRepository,
+                              RoomRepository roomRepository, CleaningRepository cleaningRepository) {
         this.userRepository = userRepository;
         this.weekRepository = weekRepository;
         this.roomRepository = roomRepository;
@@ -33,15 +32,15 @@ public class RoomFormController {
     }
 
     @RequestMapping(value = "/room/form")
-    public String getroomForm(Model model) {
-        room room = new room();
+    public String getRoomForm(Model model) {
+        Room room = new Room();
         model.addAttribute("room", room);
         return "roomForm";
     }
 
     @RequestMapping(value = "/room/remove/{id}")
     public String deleteById(@PathVariable Long id) {
-        roomRepository.removeroom(id);
+        roomRepository.removeRoom(id);
         return "redirect:/room/list";
     }
 
@@ -54,17 +53,17 @@ public class RoomFormController {
 //    }
 
     @RequestMapping(value = "/room/form", method = RequestMethod.POST)
-    public String postActivities(@ModelAttribute @Valid room room, BindingResult bindingResult) {
+    public String postRoom(@ModelAttribute @Valid Room room, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "roomForm";
         }
-        roomRepository.saveroom(room);
+        roomRepository.saveRoom(room);
         return "redirect:/room/list";
     }
 
     @RequestMapping(value = "/room/list", method = RequestMethod.GET)
-    public String allroom(Model model) {
-        List<room> roomList = roomRepository.findAll();
+    public String allRoom(Model model) {
+        List<Room> roomList = roomRepository.findAll();
         model.addAttribute("room", roomList);
         return "roomList";
     }
