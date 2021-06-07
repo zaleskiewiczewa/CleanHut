@@ -4,7 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
-
 import java.util.List;
 
 @Transactional

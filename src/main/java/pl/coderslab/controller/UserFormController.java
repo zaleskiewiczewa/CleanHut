@@ -47,13 +47,13 @@ public class UserFormController {
         return "redirect:/user/list";
     }
 
-    @RequestMapping(value = "/user/form/{id}")
-    public String getUserFormById(@PathVariable Long id, Model model) {
-        User user = userRepository.findById(id);
-        Hibernate.initialize(user.getActivities());
-        model.addAttribute("user", user);
-        return "userForm";
-    }
+//    @RequestMapping(value = "/user/form/{id}")
+//    public String getUserFormById(@PathVariable Long id, Model model) {
+//        User user = userRepository.findById(id);
+//        Hibernate.initialize(user.());
+//        model.addAttribute("user", user);
+//        return "userForm";
+//    }
 
     @RequestMapping(value = "/user/form", method = RequestMethod.POST)
     public String postUser(@ModelAttribute @Valid User user, BindingResult bindingResult) {

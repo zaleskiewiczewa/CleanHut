@@ -9,7 +9,7 @@ import java.util.List;
 
 @ToString
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -25,12 +25,7 @@ public class User {
     @Email
     private String email;
 
-    @ManyToMany
-    @JoinTable(name = "users_activities",
-            joinColumns = @JoinColumn(name = "users_id"),
-            inverseJoinColumns = @JoinColumn(name = "activities_id"))
 
-    private List<Activities> activities = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -64,11 +59,6 @@ public class User {
         this.email = email;
     }
 
-    public List<Activities> getActivities() {
-        return activities;
+
     }
 
-    public void setActivities(List<Activities> activities) {
-        this.activities = activities;
-    }
-}

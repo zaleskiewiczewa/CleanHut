@@ -67,7 +67,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getSpaceConverter());
-        registry.addConverter(getActivitiesConverter());
+
     }
 
     @Bean
@@ -75,10 +75,6 @@ public class AppConfig implements WebMvcConfigurer {
         return new SpaceConverter();
     }
 
-    @Bean
-    public ActivitiesConverter getActivitiesConverter() {
-        return new ActivitiesConverter();
-    }
 }
 
 

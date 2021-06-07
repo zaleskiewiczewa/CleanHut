@@ -6,18 +6,15 @@ import javax.validation.constraints.NotBlank;
 
 @ToString
 @Entity
-@Table(name = "rooms")
-public class Space {
+@Table(name = "room")
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String rooms;
-
-
-
+    private String room;
 
 
     public Long getId() { return id; }
@@ -26,12 +23,11 @@ public class Space {
         this.id = id;
     }
 
-    public String getRooms() {
-        return rooms;
+    public String getRoom() {
+        return room;
     }
 
-    public void setRooms(String rooms) {
-        this.rooms = rooms;
+    public void setRoom(String room) {
+        this.room = room;
     }
-
 }
