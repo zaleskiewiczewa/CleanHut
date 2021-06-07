@@ -1,11 +1,7 @@
 package pl.coderslab.entity;
-
-
 import lombok.ToString;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
