@@ -5,6 +5,9 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @Entity
@@ -18,6 +21,17 @@ public class Cleaning {
 
     @NotBlank
     private String cleaning;
+
+    @ManyToMany (mappedBy = "cleaning")
+    private List<User> users = new ArrayList<>();
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public Long getId() {
         return id;

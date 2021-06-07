@@ -25,7 +25,31 @@ public class User {
     @Email
     private String email;
 
+    @ManyToOne
+    private Week week;
 
+    public Week getWeek() {
+        return week;
+    }
+
+    public void setWeek(Week week) {
+        this.week = week;
+    }
+
+    @ManyToMany
+    @JoinTable (name = "cleaning_user",
+    joinColumns = @JoinColumn(name = "cleaning_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<Cleaning> cleanings = new ArrayList<>();
+
+
+    public List<Cleaning> getCleanings() {
+        return cleanings;
+    }
+
+    public void setCleanings(List<Cleaning> cleanings) {
+        this.cleanings = cleanings;
+    }
 
     public Long getId() {
         return id;

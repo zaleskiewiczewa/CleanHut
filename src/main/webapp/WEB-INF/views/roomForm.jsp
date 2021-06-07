@@ -3,27 +3,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-
-
-<form:form method="post" modelAttribute="user" action="/user/form">
+<form:form method="post" modelAttribute="room" action="/room/form">
 
     <p hidden><form:input path="id"/></p>
 
-    <label for="name">Name</label>
-    <form:input path="name" id="name"/>
+    <label for="room">Room</label>
+    <form:input path="room" id="room"/>
 
     <br>
-
-    <label for="password">Password</label>
-    <form:input path="password" id="password"/>
-
-    <br>
-
-    <label for="email">Email</label>
-    <form:input path="email" id="email"/>
-
-    <br>
-
 
     <input type="submit" value="Save">
 </form:form>

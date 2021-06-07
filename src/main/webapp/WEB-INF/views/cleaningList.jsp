@@ -3,27 +3,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
-
 <table>
     <th>Id</th>
-    <th>Data</th>
-    <th>Name</th>
-    <th>Password</th>
-    <th>Email</th>
+    <th>Cleaning</th>
 
     <tr>
-        <c:forEach items="${user}" var="user">
-        <td>${user.id}</td>
-        <td>${user.name}</td>
-        <td>${user.password}</td>
-        <td>${user.email}</td>
+        <c:forEach items="${cleaning}" var="cleaning">
+        <td>${cleaning.id}</td>
+        <td>${cleaning.cleaning}</td>
 
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add user</a>
+<a href="form">Add cleaning</a>
 
 
 </html>

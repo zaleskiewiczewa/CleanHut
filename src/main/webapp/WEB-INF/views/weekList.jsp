@@ -2,24 +2,27 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<body bgcolor="#20b2aa">
-<h1 style="color: blueviolet">Space</h1>
-<h2 style="color:green">List of rooms </h2>
+
+
 <table>
     <th>Id</th>
-    <th>Space</th>
+    <th>Week</th>
+    <th>Room</th>
+    <th>Password</th>
+    <th>Email</th>
 
     <tr>
-        <c:forEach items="${space}" var="rooms">
-        <td>${rooms.id}</td>
-        <td>${rooms.rooms}</td>
+        <c:forEach items="${week}" var="week">
+        <td>${week.id}</td>
+        <td>${week.week}</td>
+        <td>${week.name}</td>
 
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add space</a>
+<a href="form">Add week</a>
 
-</body>
+
 </html>
