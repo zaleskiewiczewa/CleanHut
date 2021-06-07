@@ -21,7 +21,7 @@ public class RoomController {
     public String home() {
         Room room = new Room();
         room.setId(1l);
-        room.setRooms("Room 1");
+        room.setRoom("Room 1");
         roomRepository.saveRoom(room);
         return "room: " + room.getId();
     }
@@ -37,7 +37,7 @@ public class RoomController {
     @ResponseBody
     public String updateRoom(@PathVariable  long id, @PathVariable String room){
         Room room1 =roomRepository.findById(id);
-        room.setRooms(room);
+        room1.setRoom("Room1");
         roomRepository.updateRoom(room1);
         return room.toString();
     }

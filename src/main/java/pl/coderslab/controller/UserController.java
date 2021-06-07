@@ -17,7 +17,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = {"/adduser"})
+    @RequestMapping(value = {"/add/user"})
     @ResponseBody
     public String home() {
         User user = new User();
@@ -55,7 +55,7 @@ public class UserController {
 
     @RequestMapping(value = {"/user/all"})
     @ResponseBody
-    public String bookAll () {
+    public String userAll () {
         List<User> all = userRepository.findAll();
         return "Users: " + all.size();
     }
