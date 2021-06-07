@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.coderslab.entity.Activities;
-import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Space;
-import pl.coderslab.repository.ActivitiesRepository;
-import pl.coderslab.repository.DataRepository;
+import pl.coderslab.repository.CleaningRepository;
 import pl.coderslab.repository.SpaceRepository;
 import pl.coderslab.repository.UserRepository;
+import pl.coderslab.repository.WeekRepository;
+
 import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
@@ -22,16 +21,16 @@ import java.util.List;
 public class SpaceFormController {
 
     private final UserRepository userRepository;
-    private final DataRepository dataRepository;
+    private final WeekRepository weekRepository;
     private final SpaceRepository spaceRepository;
-    private final ActivitiesRepository activitiesRepository;
+    private final CleaningRepository cleaningRepository;
 
-    public SpaceFormController(UserRepository userRepository, DataRepository dataRepository,
-                              SpaceRepository spaceRepository, ActivitiesRepository activitiesRepository) {
+    public SpaceFormController(UserRepository userRepository, WeekRepository weekRepository,
+                              SpaceRepository spaceRepository, CleaningRepository cleaningRepository) {
         this.userRepository = userRepository;
-        this.dataRepository = dataRepository;
+        this.weekRepository = weekRepository;
         this.spaceRepository = spaceRepository;
-        this.activitiesRepository = activitiesRepository;
+        this.cleaningRepository = cleaningRepository;
     }
 
     @RequestMapping(value = "/space/form")
@@ -69,10 +68,6 @@ public class SpaceFormController {
         List<Space> spaceList = spaceRepository.findAll();
         model.addAttribute("space", spaceList);
         return "spaceList";
-    }
-    @ModelAttribute("dates")
-    public Collection<Data> dates() {
-        return this.dataRepository.findAll();
     }
 
 }

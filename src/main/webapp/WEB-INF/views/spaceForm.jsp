@@ -14,7 +14,7 @@
     <form:errors path="rooms" cssClass="rooms"/>
     <br>
 
-    <form:select itemValue="id" itemLabel="name"
+    <form:select itemValue="id" itemLabel="dates"
                  path="data" items="${dates}"/>
     <br>
 

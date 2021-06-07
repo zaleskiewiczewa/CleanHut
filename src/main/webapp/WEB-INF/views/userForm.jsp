@@ -24,7 +24,7 @@
     <form:errors path="email" cssClass="email"/>
     <br>
 
-    <form:select itemValue="id" itemLabel="name"
+    <form:select itemValue="id" itemLabel="activities"
                  path="activities" items="${activities}"/>
     <br>
 

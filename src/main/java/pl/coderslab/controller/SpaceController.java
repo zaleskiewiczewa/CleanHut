@@ -1,12 +1,10 @@
 package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.entity.Data;
 import pl.coderslab.entity.Space;
 import pl.coderslab.repository.SpaceRepository;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Transactional

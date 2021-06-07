@@ -15,10 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import pl.coderslab.controller.ActivitiesConverter;
 import pl.coderslab.controller.SpaceConverter;
-import pl.coderslab.entity.Activities;
-import pl.coderslab.entity.Space;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
