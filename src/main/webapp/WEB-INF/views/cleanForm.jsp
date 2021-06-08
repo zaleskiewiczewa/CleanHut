@@ -4,14 +4,12 @@
 <html>
 <body>
 
-
-
-        <form:form method="post" modelAttribute="cleaning" action="/cleaning/form">
+<form:form method="post" modelAttribute="clean" action="/clean/form">
 
             <p hidden><form:input path="id"/></p>
 
-            <label for="cleaning">Cleaning</label>
-            <form:input path="cleaning" id="cleaning"/>
+            <label for="clean">Clean</label>
+            <form:input path="clean" id="clean"/>
 
             <br>
 

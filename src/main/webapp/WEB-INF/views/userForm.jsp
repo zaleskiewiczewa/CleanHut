@@ -24,6 +24,13 @@
 
     <br>
 
+    <form:select itemValue="id" itemLabel="clean"
+                 path="clean" items="${clean}"/>
+    <br>
+
+    <form:select itemValue="id" itemLabel="week" multiple="true"
+                 path="week" items="${week}"/>
+
 
     <input type="submit" value="Save">
 </form:form>

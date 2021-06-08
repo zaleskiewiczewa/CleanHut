@@ -5,19 +5,19 @@
 
 <table>
     <th>Id</th>
-    <th>Cleaning</th>
+    <th>Clean</th>
 
     <tr>
-        <c:forEach items="${cleaning}" var="cleaning">
-        <td>${cleaning.id}</td>
-        <td>${cleaning.cleaning}</td>
+        <c:forEach items="${clean}" var="clean">
+        <td>${clean.id}</td>
+        <td>${clean.clean}</td>
 
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add cleaning</a>
+<a href="form">Add clean</a>
 
 
 </html>

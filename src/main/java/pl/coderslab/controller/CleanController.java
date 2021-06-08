@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.entity.Clean;
 import pl.coderslab.repository.CleanRepository;
-import javax.transaction.Transactional;
 import java.util.List;
 
 
-@Transactional
+
 @Controller
 public class CleanController {
 
