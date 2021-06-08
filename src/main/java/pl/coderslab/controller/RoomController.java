@@ -54,7 +54,7 @@ public class RoomController {
     @ResponseBody
     public String roomAll () {
         List<Room> all = roomRepository.findAll();
-        return "rooms: " + all.size();
+        return "Rooms: " + all.size();
     }
 
 }

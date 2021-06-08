@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.entity.Room;
-import pl.coderslab.repository.CleaningRepository;
+import pl.coderslab.repository.CleanRepository;
 import pl.coderslab.repository.RoomRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.repository.WeekRepository;
@@ -21,14 +21,14 @@ public class RoomFormController {
     private final UserRepository userRepository;
     private final WeekRepository weekRepository;
     private final RoomRepository roomRepository;
-    private final CleaningRepository cleaningRepository;
+    private final CleanRepository cleanRepository;
 
     public RoomFormController(UserRepository userRepository, WeekRepository weekRepository,
-                              RoomRepository roomRepository, CleaningRepository cleaningRepository) {
+                              RoomRepository roomRepository, CleanRepository cleanRepository) {
         this.userRepository = userRepository;
         this.weekRepository = weekRepository;
         this.roomRepository = roomRepository;
-        this.cleaningRepository = cleaningRepository;
+        this.cleanRepository = cleanRepository;
     }
 
     @RequestMapping(value = "/room/form")

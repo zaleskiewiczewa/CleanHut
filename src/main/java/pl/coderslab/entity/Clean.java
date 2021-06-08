@@ -7,18 +7,17 @@ import java.util.List;
 
 @ToString
 @Entity
-@Table(name = "cleaning")
-public class Cleaning {
+@Table(name = "clean")
+public class Clean {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @NotBlank
-    private String cleaning;
+    private String clean;
 
-    @ManyToMany (mappedBy = "cleaning")
+    @ManyToMany (mappedBy = "clean")
     private List<User> users = new ArrayList<>();
 
     public List<User> getUsers() {
@@ -37,11 +36,11 @@ public class Cleaning {
         this.id = id;
     }
 
-    public String getCleaning() {
-        return cleaning;
+    public String getClean() {
+        return clean;
     }
 
-    public void setCleaning(String cleaning) {
-        this.cleaning = cleaning;
+    public void setClean(String clean) {
+        this.clean = clean;
     }
 }

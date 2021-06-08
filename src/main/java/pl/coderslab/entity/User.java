@@ -37,18 +37,17 @@ public class User {
     }
 
     @ManyToMany
-    @JoinTable (name = "cleaning_user",
-    joinColumns = @JoinColumn(name = "cleaning_id"),
+    @JoinTable (name = "clean_user",
+    joinColumns = @JoinColumn(name = "clean_id"),
     inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<Cleaning> cleanings = new ArrayList<>();
+    private List<Clean> cleans = new ArrayList<>();
 
-
-    public List<Cleaning> getCleanings() {
-        return cleanings;
+    public List<Clean> getCleans() {
+        return cleans;
     }
 
-    public void setCleanings(List<Cleaning> cleanings) {
-        this.cleanings = cleanings;
+    public void setCleans(List<Clean> cleans) {
+        this.cleans = cleans;
     }
 
     public Long getId() {
