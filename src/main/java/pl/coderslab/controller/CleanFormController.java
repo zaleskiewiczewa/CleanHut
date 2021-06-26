@@ -9,26 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.entity.Clean;
 import pl.coderslab.repository.CleanRepository;
-import pl.coderslab.repository.RoomRepository;
-import pl.coderslab.repository.UserRepository;
-import pl.coderslab.repository.WeekRepository;
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 public class CleanFormController {
 
-    private final UserRepository userRepository;
-    private final WeekRepository weekRepository;
-    private final RoomRepository roomRepository;
+
     private final CleanRepository cleanRepository;
 
-    public CleanFormController(UserRepository userRepository, WeekRepository weekRepository,
-                              RoomRepository roomRepository, CleanRepository cleanRepository) {
-        this.userRepository = userRepository;
-        this.weekRepository = weekRepository;
+    public CleanFormController(CleanRepository cleanRepository) {
         this.cleanRepository = cleanRepository;
-        this.roomRepository = roomRepository;
+
     }
 
     @RequestMapping(value = "/clean/form")
@@ -65,7 +57,7 @@ public class CleanFormController {
     public String allClean(Model model) {
         List<Clean> cleanList = cleanRepository.findAll();
         model.addAttribute("clean", cleanList);
-        return "roomList";
+        return "cleanList";
     }
 
 }

@@ -6,28 +6,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.coderslab.entity.Clean;
 import pl.coderslab.entity.User;
+import pl.coderslab.entity.Week;
 import pl.coderslab.repository.CleanRepository;
-import pl.coderslab.repository.RoomRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.repository.WeekRepository;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
 public class UserFormController {
 
     private final UserRepository userRepository;
-    private final WeekRepository weekRepository;
-    private final RoomRepository roomRepository;
     private final CleanRepository cleanRepository;
+    private final WeekRepository weekRepository;
 
-    public UserFormController(UserRepository userRepository, WeekRepository weekRepository,
-                              RoomRepository roomRepository, CleanRepository cleanRepository) {
+    public UserFormController(UserRepository userRepository, CleanRepository cleanRepository, WeekRepository weekRepository) {
         this.userRepository = userRepository;
-        this.weekRepository = weekRepository;
-        this.roomRepository = roomRepository;
         this.cleanRepository = cleanRepository;
+        this.weekRepository = weekRepository;
     }
 
     @RequestMapping(value = "/user/form")
@@ -67,4 +66,17 @@ public class UserFormController {
         return "userList";
     }
 
+    @ModelAttribute("weeks")
+    public Collection<Week> weeks() {
+        return weekRepository.findAll();
+    }
+
+
+
+    @ModelAttribute("cleans")
+    public Collection<Clean> cleans() {
+        return cleanRepository.findAll();
+    }
 }
+
+

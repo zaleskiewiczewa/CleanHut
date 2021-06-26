@@ -25,7 +25,7 @@
     <br>
 
     <form:select itemValue="id" itemLabel="clean"
-                 path="clean" items="${clean}"/>
+                 path="cleans" items="${clean}"/>
     <br>
 
     <form:select itemValue="id" itemLabel="week" multiple="true"

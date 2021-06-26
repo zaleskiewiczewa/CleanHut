@@ -17,7 +17,7 @@ public class Clean {
     @NotBlank
     private String clean;
 
-    @ManyToMany (mappedBy = "clean")
+    @ManyToMany (mappedBy = "cleans")
     private List<User> users = new ArrayList<>();
 
     public List<User> getUsers() {

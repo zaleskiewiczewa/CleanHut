@@ -10,7 +10,7 @@
     <tr>
         <c:forEach items="${room}" var="rooms">
         <td>${rooms.id}</td>
-        <td>${rooms.rooms}</td>
+        <td>${rooms.room}</td>
 
     </tr>
 

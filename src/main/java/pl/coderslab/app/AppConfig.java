@@ -3,6 +3,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -13,6 +14,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.coderslab.controller.CleanConverter;
+import pl.coderslab.controller.RoomConverter;
+import pl.coderslab.controller.UserConverter;
+import pl.coderslab.controller.WeekConverter;
+
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
 import java.util.Locale;
@@ -60,13 +66,34 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
 
-//    @Override
-//    public void addFormatters(FormatterRegistry registry) {
-//        registry.addConverter(getSpaceConverter());
-//
-//    }
+   @Override
+  public void addFormatters(FormatterRegistry registry) {
+       registry.addConverter(getRoomConverter());
+       registry.addConverter(getCleanConverter());
+       registry.addConverter(getUserConverter());
+       registry.addConverter(getWeekConverter());
 
+   }
 
+    @Bean
+    public RoomConverter getRoomConverter() {
+        return new RoomConverter();
+    }
+
+    @Bean
+    public CleanConverter getCleanConverter() {
+        return new CleanConverter();
+    }
+
+    @Bean
+    public UserConverter getUserConverter() {
+        return new UserConverter();
+    }
+
+    @Bean
+    public WeekConverter getWeekConverter() {
+        return new WeekConverter();
+    }
 
 }
 
