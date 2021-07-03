@@ -36,7 +36,7 @@ public class RoomFormController {
     }
 
     @RequestMapping(value = "/room/form/{id}")
-  public String getroomFormById(@PathVariable Long id, Model model) {
+  public String getRoomFormById(@PathVariable Long id, Model model) {
       Room room = roomRepository.findById(id);
       Hibernate.initialize((room.getRoom()));
         model.addAttribute("room", room);

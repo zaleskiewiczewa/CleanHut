@@ -2,6 +2,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    error {
+        background-color: red;
+    }
+</style>
 <body>
 
 <form:form method="post" modelAttribute="clean" action="/clean/form">
@@ -10,6 +15,7 @@
 
             <label for="clean">Clean</label>
             <form:input path="clean" id="clean"/>
+             <form:errors path="clean" cssClass="error"/>
 
             <br>
 

@@ -43,7 +43,7 @@ public class WeekFormController {
 // }
 
     @RequestMapping(value = "/week/form", method = RequestMethod.POST)
-    public String postweek(@ModelAttribute @Valid Week week, BindingResult bindingResult) {
+    public String postWeek(@ModelAttribute @Valid Week week, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "weekForm";
         }
@@ -52,7 +52,7 @@ public class WeekFormController {
     }
 
     @RequestMapping(value = "/week/list", method = RequestMethod.GET)
-    public String allweek(Model model) {
+    public String allWeek(Model model) {
         List<Week> weekList = weekRepository.findAll();
         model.addAttribute("week", weekList);
         return "weekList";

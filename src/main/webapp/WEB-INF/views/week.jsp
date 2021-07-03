@@ -11,6 +11,7 @@ Week
 
     <label for="week">Week</label>
     <form:input path="week" id="week"/>
+    <form:errors path="week" cssClass="error"/>
     <br>
 
     <input type="submit" value="Save">
