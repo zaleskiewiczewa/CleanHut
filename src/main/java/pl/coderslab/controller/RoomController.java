@@ -23,7 +23,7 @@ public class RoomController {
         room.setId(1l);
         room.setRoom("Room 1");
         roomRepository.saveRoom(room);
-        return "room: " + room.getId();
+        return "Room: " + room.getId();
     }
 
     @RequestMapping (value = "/room/read/{id}")

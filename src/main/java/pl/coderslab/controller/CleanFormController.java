@@ -36,13 +36,13 @@ public class CleanFormController {
         return "redirect:/clean/list";
     }
 
-    @RequestMapping(value = "/clean/form/{id}")
-    public String getCleanFormById(@PathVariable Long id, Model model) {
-        Clean clean = cleanRepository.findById(id);
-        Hibernate.initialize((clean.getClean()));
-        model.addAttribute("clean", clean);
-        return "cleanForm";
-    }
+//    @RequestMapping(value = "/clean/form/{id}")
+//    public String getCleanFormById(@PathVariable Long id, Model model) {
+//        Clean clean = cleanRepository.findById(id);
+//        Hibernate.initialize((clean.getClean()));
+//        model.addAttribute("clean", clean);
+//        return "cleanForm";
+//    }
 
     @RequestMapping(value = "/clean/form", method = RequestMethod.POST)
     public String postClean(@ModelAttribute @Valid Clean clean, BindingResult bindingResult) {

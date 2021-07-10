@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,7 +9,7 @@ import pl.coderslab.repository.CleanRepository;
 import java.util.List;
 
 
-
+@Transactional
 @Controller
 public class CleanController {
 
@@ -26,7 +27,7 @@ public class CleanController {
         clean.setId(1l);
         clean.setClean("Ironing");
         cleanRepository.saveClean(clean);
-        return "clean: " + clean.getId();
+        return "Clean: " + clean.getId();
     }
 
 
@@ -57,6 +58,6 @@ public class CleanController {
     @ResponseBody
     public String cleanAll () {
         List<Clean> all = cleanRepository.findAll();
-        return "cleans: " + all.size();
+        return "Cleans: " + all.size();
     }
 }

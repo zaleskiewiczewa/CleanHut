@@ -57,7 +57,7 @@ public class UserFormController {
         }
         userRepository.saveUser(user);
         return "redirect:/user/list";
-    }
+    } 
 
     @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public String allUser(Model model) {

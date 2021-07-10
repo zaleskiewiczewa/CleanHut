@@ -35,13 +35,13 @@ public class RoomFormController {
         return "redirect:/room/list";
     }
 
-    @RequestMapping(value = "/room/form/{id}")
-  public String getRoomFormById(@PathVariable Long id, Model model) {
-      Room room = roomRepository.findById(id);
-      Hibernate.initialize((room.getRoom()));
-        model.addAttribute("room", room);
-        return "roomForm";
-    }
+//    @RequestMapping(value = "/room/form/{id}")
+//  public String getRoomFormById(@PathVariable Long id, Model model) {
+//      Room room = roomRepository.findById(id);
+//      Hibernate.initialize((room.getRoom()));
+//        model.addAttribute("room", room);
+//        return "roomForm";
+//    }
 
     @RequestMapping(value = "/room/form", method = RequestMethod.POST)
     public String postRoom(@ModelAttribute @Valid Room room, BindingResult bindingResult) {
