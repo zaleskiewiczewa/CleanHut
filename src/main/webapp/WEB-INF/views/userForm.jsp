@@ -29,13 +29,13 @@
     <form:errors path="email" cssClass="error"/>
     <br>
 
-    <form:select itemValue="id" itemLabel="cleans"
+    <form:select itemValue="id" itemLabel="clean"
                  path="cleans" items="${cleans}"/>
     <form:errors path="cleans" cssClass="error"/>
     <br>
 
     <form:select itemValue="id" itemLabel="week" multiple="true"
-                 path="week" items="${week}"/>
+                 path="week" items="${weeks}"/>
     <form:errors path="week" cssClass="error"/>
 
 

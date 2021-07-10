@@ -17,16 +17,16 @@ public class Clean {
     @NotBlank
     private String clean;
 
-    @ManyToMany (mappedBy = "cleans")
-    private List<User> users = new ArrayList<>();
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+//    @ManyToMany (mappedBy = "cleans")
+//    private List<User> users = new ArrayList<>();
+//
+//    public List<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(List<User> users) {
+//        this.users = users;
+//    }
 
     public Long getId() {
         return id;

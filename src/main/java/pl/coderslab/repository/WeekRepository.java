@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -41,7 +42,8 @@ public class WeekRepository {
 
     public List<Week> findAll() {
         Query query = entityManager.createQuery("Select t from Week t");
-        return query.getResultList();
+        List<Week> weekList =query.getResultList();
+        return weekList;
     }
 
     public Week findById(Long id) {
