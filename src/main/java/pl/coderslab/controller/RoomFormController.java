@@ -8,18 +8,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.entity.Room;
+import pl.coderslab.entity.User;
+import pl.coderslab.repository.CleanRepository;
 import pl.coderslab.repository.RoomRepository;
+import pl.coderslab.repository.UserRepository;
+import pl.coderslab.repository.WeekRepository;
+
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 public class RoomFormController {
-
     private final RoomRepository roomRepository;
+    private final CleanRepository cleanRepository;
+    private final WeekRepository weekRepository;
 
-    public RoomFormController(RoomRepository roomRepository) {
-
+    public RoomFormController(RoomRepository roomRepository, CleanRepository cleanRepository, WeekRepository weekRepository) {
         this.roomRepository = roomRepository;
+        this.cleanRepository = cleanRepository;
+        this.weekRepository = weekRepository;
     }
 
     @RequestMapping(value = "/room/form")
@@ -36,12 +43,12 @@ public class RoomFormController {
     }
 
 //    @RequestMapping(value = "/room/form/{id}")
-//  public String getRoomFormById(@PathVariable Long id, Model model) {
-//      Room room = roomRepository.findById(id);
-//      Hibernate.initialize((room.getRoom()));
-//        model.addAttribute("room", room);
+//   public String getroomFormById(@PathVariable Long id, Model model) {
+//       room room = roomRepository.findById(id);
+//       Hibernate.initialize(room.g());
+//     model.addAttribute("room", room);
 //        return "roomForm";
-//    }
+// }
 
     @RequestMapping(value = "/room/form", method = RequestMethod.POST)
     public String postRoom(@ModelAttribute @Valid Room room, BindingResult bindingResult) {
