@@ -7,17 +7,17 @@
     <th>Id</th>
     <th>Clean</th>
 
-    <tr>
-        <c:forEach items="${clean}" var="clean">
-        <td>${clean.id}</td>
-        <td>${clean.clean}</td>
 
+        <c:forEach items="${cleans}" var="clean">
+    <tr>
+        <td>${cleans.id}</td>
+        <td>${cleans.clean}</td>
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add clean</a>
+<a href="form">Add cleans</a>
 
 
 </html>

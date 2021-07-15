@@ -8,6 +8,8 @@
     }
 </style>
 <body>
+
+
 <form:form method="post" modelAttribute="room" action="/room/form">
 
     <p hidden><form:input path="id"/></p>

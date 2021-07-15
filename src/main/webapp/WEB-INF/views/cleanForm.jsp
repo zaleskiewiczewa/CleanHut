@@ -15,7 +15,7 @@
 
             <label for="clean">Clean</label>
             <form:input path="clean" id="clean"/>
-             <form:errors path="clean" cssClass="error"/>
+            <form:errors path="clean" cssClass="error"/>
 
             <br>
 

@@ -7,8 +7,9 @@
     <th>Id</th>
     <th>Room</th>
 
-    <tr>
+
         <c:forEach items="${room}" var="rooms">
+    <tr>
         <td>${rooms.id}</td>
         <td>${rooms.room}</td>
 

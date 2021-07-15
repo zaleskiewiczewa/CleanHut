@@ -8,11 +8,11 @@
     <th>Id</th>
     <th>Week</th>
     <th>Room</th>
-    <th>Password</th>
     <th>Email</th>
 
-    <tr>
+
         <c:forEach items="${week}" var="week">
+    <tr>
         <td>${week.id}</td>
         <td>${week.week}</td>
         <td>${week.name}</td>

@@ -4,8 +4,8 @@
 <html>
 <body>
 
-Week
-<form:form method="post" modelAttribute="week" action="/week/form">
+
+<form:form method="post" modelAttribute="week" action="/week">
 
     <p hidden><form:input path="id"/></p>
 

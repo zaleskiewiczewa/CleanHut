@@ -10,14 +10,12 @@
     <th>Name</th>
     <th>Password</th>
     <th>Email</th>
-
     <tr>
         <c:forEach items="${user}" var="user">
         <td>${user.id}</td>
         <td>${user.name}</td>
         <td>${user.password}</td>
         <td>${user.email}</td>
-
     </tr>
 
     </c:forEach>

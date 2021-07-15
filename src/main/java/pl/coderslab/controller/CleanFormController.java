@@ -61,7 +61,7 @@ public class CleanFormController {
     @RequestMapping(value = "/clean/list", method = RequestMethod.GET)
     public String allClean(Model model) {
         List<Clean> cleanList = cleanRepository.findAll();
-        model.addAttribute("clean", cleanList);
+        model.addAttribute("cleans", cleanList);
         return "cleanList";
     }
 
