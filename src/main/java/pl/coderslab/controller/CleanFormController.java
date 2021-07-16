@@ -3,10 +3,7 @@ import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Clean;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.CleanRepository;
@@ -28,14 +25,14 @@ public class CleanFormController {
         this.weekRepository = weekRepository;
     }
 
-    @RequestMapping(value = "/clean/form")
+   @GetMapping(value = "/clean/form")
     public String getCleanForm(Model model) {
         Clean clean = new Clean();
         model.addAttribute("clean", clean);
         return "cleanForm";
     }
 
-    @RequestMapping(value = "/clean/remove/{id}")
+    @RequestMapping(value = "/clean/remove/{id}",method = RequestMethod.GET)
     public String deleteById(@PathVariable Long id) {
         cleanRepository.removeClean(id);
         return "redirect:/clean/list";
@@ -49,7 +46,7 @@ public class CleanFormController {
 //        return "cleanForm";
 // }
 
-    @RequestMapping(value = "/clean/form", method = RequestMethod.POST)
+ @RequestMapping(value = "/clean/form",method = RequestMethod.POST)
     public String postClean(@ModelAttribute @Valid Clean clean, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "cleanForm";

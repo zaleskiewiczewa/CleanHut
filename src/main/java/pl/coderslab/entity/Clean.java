@@ -15,7 +15,7 @@ public class Clean {
     private Long id;
 
     @NotBlank
-    private String clean;
+    private String cleaning;
 
 //    @ManyToMany (mappedBy = "cleans")
 //    private List<User> users = new ArrayList<>();
@@ -36,11 +36,11 @@ public class Clean {
         this.id = id;
     }
 
-    public String getClean() {
-        return clean;
+    public String getCleaning() {
+        return cleaning;
     }
 
-    public void setClean(String clean) {
-        this.clean = clean;
+    public void setCleaning(String cleaning) {
+        this.cleaning = cleaning;
     }
 }

@@ -10,14 +10,14 @@
 
         <c:forEach items="${cleans}" var="clean">
     <tr>
-        <td>${cleans.id}</td>
-        <td>${cleans.clean}</td>
+        <td>${clean.id}</td>
+        <td>${clean.cleaning}</td>
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add cleans</a>
+<a href="/clean/form">Add cleans</a>
 
 
 </html>

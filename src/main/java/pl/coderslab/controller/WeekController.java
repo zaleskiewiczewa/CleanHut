@@ -38,7 +38,7 @@ public class WeekController {
     @ResponseBody
     public String updateWeek(@PathVariable long id, @PathVariable String week1) {
         Week week = weekRepository.findById(id);
-        week.setWeek(week1);
+        week.setWeeks(week1);
         weekRepository.updateWeek(week);
         return week.toString();
     }
@@ -46,7 +46,7 @@ public class WeekController {
     @RequestMapping(value = "/week/delete/{id}")
     @ResponseBody
     public String removeWeek(@PathVariable long id) {
-        Week week = weekRepository.findById(id);
+        weekRepository.removeWeek(id);
         return "Removed this week";
     }
 

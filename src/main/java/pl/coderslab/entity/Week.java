@@ -16,7 +16,7 @@ public class Week {
     private Long id;
 
     @NotBlank
-    private String week;
+    private String weeks;
 
     @OneToMany(mappedBy = "week")
     private List<User> users= new ArrayList<>();
@@ -37,11 +37,11 @@ public class Week {
         this.id = id;
     }
 
-    public String getWeek() {
-        return week;
+    public String getWeeks() {
+        return weeks;
     }
 
-    public void setWeek(String week) {
-        this.week = week;
+    public void setWeeks(String weeks) {
+        this.weeks = weeks;
     }
 }

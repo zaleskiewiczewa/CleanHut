@@ -6,7 +6,6 @@
 
 <table>
     <th>Id</th>
-    <th>Data</th>
     <th>Name</th>
     <th>Password</th>
     <th>Email</th>
@@ -21,7 +20,7 @@
     </c:forEach>
 </table>
 
-<a href="form">Add user</a>
+<a href="/user/form">Add user</a>
 
 
 </html>

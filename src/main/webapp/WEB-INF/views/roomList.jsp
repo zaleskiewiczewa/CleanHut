@@ -11,14 +11,14 @@
         <c:forEach items="${room}" var="rooms">
     <tr>
         <td>${rooms.id}</td>
-        <td>${rooms.room}</td>
+        <td>${rooms.rooms}</td>
 
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add room</a>
+<a href="/room/form">Add room</a>
 
 
 </html>

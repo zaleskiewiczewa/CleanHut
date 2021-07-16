@@ -1,10 +1,8 @@
 package pl.coderslab.controller;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.User;
 import pl.coderslab.entity.Week;
 import pl.coderslab.repository.CleanRepository;
@@ -13,6 +11,7 @@ import pl.coderslab.repository.WeekRepository;
 import javax.validation.Valid;
 import java.util.List;
 
+@Controller
 public class WeekFormController {
 
 
@@ -26,14 +25,14 @@ public class WeekFormController {
         this.weekRepository = weekRepository;
     }
 
-    @RequestMapping(value = "/week/form")
+    @GetMapping(value = "/week/form")
     public String getWeekForm(Model model) {
         Week week = new Week();
         model.addAttribute("week", week);
         return "week";
     }
 
-    @RequestMapping(value = "/week/remove/{id}")
+    @RequestMapping(value = "/week/remove/{id}",method = RequestMethod.GET)
     public String deleteById(@PathVariable Long id) {
         weekRepository.removeWeek(id);
         return "redirect:/week/list";

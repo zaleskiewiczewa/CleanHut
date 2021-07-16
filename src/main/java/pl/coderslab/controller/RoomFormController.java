@@ -3,10 +3,7 @@ import org.hibernate.Hibernate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Room;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.CleanRepository;
@@ -29,14 +26,14 @@ public class RoomFormController {
         this.weekRepository = weekRepository;
     }
 
-    @RequestMapping(value = "/room/form")
+   @GetMapping(value = "/room/form")
     public String getRoomForm(Model model) {
         Room room = new Room();
         model.addAttribute("room", room);
         return "roomForm";
     }
 
-    @RequestMapping(value = "/room/remove/{id}")
+    @RequestMapping(value = "/room/remove/{id}",method = RequestMethod.GET)
     public String deleteById(@PathVariable Long id) {
         roomRepository.removeRoom(id);
         return "redirect:/room/list";

@@ -21,7 +21,7 @@ public class RoomController {
     public String home() {
         Room room = new Room();
         room.setId(1l);
-        room.setRoom("Room 1");
+        room.setRooms("Room 1");
         roomRepository.saveRoom(room);
         return "Room: " + room.getId();
     }
@@ -37,7 +37,7 @@ public class RoomController {
     @ResponseBody
     public String updateRoom(@PathVariable  long id, @PathVariable String room){
         Room room1 =roomRepository.findById(id);
-        room1.setRoom("Room1");
+        room1.setRooms("Room1");
         roomRepository.updateRoom(room1);
         return room.toString();
     }
@@ -45,7 +45,7 @@ public class RoomController {
     @RequestMapping (value = "/room/delete/{id}")
     @ResponseBody
     public String removeRoom(@PathVariable long id){
-        Room room = roomRepository.findById(id);
+         roomRepository.removeRoom(id);
         return "Removed this room";
     }
 

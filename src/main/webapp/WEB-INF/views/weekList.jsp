@@ -7,22 +7,18 @@
 <table>
     <th>Id</th>
     <th>Week</th>
-    <th>Room</th>
-    <th>Email</th>
 
 
         <c:forEach items="${week}" var="week">
     <tr>
         <td>${week.id}</td>
-        <td>${week.week}</td>
-        <td>${week.name}</td>
-
+        <td>${week.weeks}</td>
     </tr>
 
     </c:forEach>
 </table>
 
-<a href="form">Add week</a>
+<a href="/week/form">Add week</a>
 
 
 </html>

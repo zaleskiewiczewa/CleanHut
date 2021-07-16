@@ -29,14 +29,14 @@ public class UserFormController {
         this.weekRepository = weekRepository;
     }
 
-    @RequestMapping(value = "/user/form")
+    @RequestMapping(value = "/user/form",method=RequestMethod.GET)
     public String getUserForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "userForm";
     }
 
-    @RequestMapping(value = "/user/remove/{id}")
+    @RequestMapping(value = "/user/remove/{id}",method = RequestMethod.GET)
     public String deleteById(@PathVariable Long id) {
         userRepository.removeUser(id);
         return "redirect:/user/list";

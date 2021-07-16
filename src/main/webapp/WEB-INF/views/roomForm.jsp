@@ -15,8 +15,8 @@
     <p hidden><form:input path="id"/></p>
 
     <label for="room">Room</label>
-    <form:input path="room" id="room"/>
-    <form:errors path="room" cssClass="error"/>
+    <form:input path="rooms" id="room"/>
+    <form:errors path="rooms" cssClass="error"/>
 
     <br>
 

@@ -25,7 +25,7 @@ public class CleanController {
     public String home() {
         Clean clean = new Clean();
         clean.setId(1l);
-        clean.setClean("Ironing");
+        clean.setCleaning("Ironing");
         cleanRepository.saveClean(clean);
         return "Clean: " + clean.getId();
     }
@@ -42,7 +42,7 @@ public class CleanController {
     @ResponseBody
     public String updateClean(@PathVariable long id, @PathVariable String name) {
         Clean clean = cleanRepository.findById(id);
-        clean.setClean(name);
+        clean.setCleaning(name);
         cleanRepository.updateClean(clean);
         return clean.toString();
     }
@@ -50,7 +50,7 @@ public class CleanController {
     @RequestMapping(value = "/clean/delete/{id}")
     @ResponseBody
     public String removeClean(@PathVariable long id) {
-        Clean clean = cleanRepository.findById(id);
+         cleanRepository.removeClean(id);
         return "Removed this clean";
     }
 

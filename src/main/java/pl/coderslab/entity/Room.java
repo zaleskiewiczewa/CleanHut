@@ -14,7 +14,7 @@ public class Room {
     private Long id;
 
     @NotBlank
-    private String room;
+    private String rooms;
 
 
     public Long getId() { return id; }
@@ -23,11 +23,11 @@ public class Room {
         this.id = id;
     }
 
-    public String getRoom() {
-        return room;
+    public String getRooms() {
+        return rooms;
     }
 
-    public void setRoom(String room) {
-        this.room = room;
+    public void setRooms(String rooms) {
+        this.rooms = rooms;
     }
 }

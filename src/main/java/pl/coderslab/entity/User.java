@@ -3,6 +3,7 @@ import javax.persistence.*;
 import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class User {
     private String password;
 
     @Email
+    @NotBlank
     private String email;
 
     @ManyToOne

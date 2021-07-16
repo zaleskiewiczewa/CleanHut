@@ -14,8 +14,8 @@
             <p hidden><form:input path="id"/></p>
 
             <label for="clean">Clean</label>
-            <form:input path="clean" id="clean"/>
-            <form:errors path="clean" cssClass="error"/>
+            <form:input path="cleaning" id="clean"/>
+            <form:errors path="cleaning" cssClass="error"/>
 
             <br>
 

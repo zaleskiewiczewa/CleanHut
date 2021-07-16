@@ -49,7 +49,7 @@ public class UserController {
     @RequestMapping(value = "/user/delete/{id}")
     @ResponseBody
     public String removeUser(@PathVariable long id) {
-        User user = userRepository.findById(id);
+        userRepository.removeUser(id);
         return "Removed this user";
     }
 
